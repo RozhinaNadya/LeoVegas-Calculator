@@ -8,7 +8,7 @@
 import Foundation
 
 enum Operation {
-    case addition, subtraction, multiplication, division
+    case addition, subtraction, multiplication, division, decimal
     case sin, cos
     case none
 }
@@ -16,25 +16,26 @@ enum Operation {
 class CalculatorViewModel: ObservableObject {
 
     @Published var calculatorValue = CalculatorButton.zero.value
-    @Published var runningNumber = 0
-
     @Published var currentOperation: Operation = .none
+    @Published var perationBeforeDecimal: Operation = .none
+    @Published var runningNumber = 0.0
+
+    var isDecimalActive = false
 
     func didTapNumber(button: CalculatorButton) {
         switch button {
-        case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero, .decimal :
+        case .decimal:
+            perationBeforeDecimal = currentOperation
+            currentOperation = .decimal
+            isDecimalActive = true
             let number = button.value
-            if calculatorValue == CalculatorButton.zero.value || currentOperation != .none {
-                calculatorValue = number
-            } else {
-                calculatorValue = "\(calculatorValue)\(number)"
-            }
+            calculatorValue = "\(calculatorValue)\(number)"
 
         case .addition, .subtraction, .multiplication, .division, .sin, .cos, .negative, .equal:
             if button == .negative {
-                runningNumber = -(Int(calculatorValue) ?? 0)
+                runningNumber = -(Double(calculatorValue) ?? 0.00)
             } else if button != .equal {
-                runningNumber = Int(calculatorValue) ?? 0
+                runningNumber = Double(calculatorValue) ?? 0.00
             }
 
             if button == .addition {
@@ -52,32 +53,49 @@ class CalculatorViewModel: ObservableObject {
             } else if button == .negative {
                 calculatorValue = "\(runningNumber)"
             } else if button == .equal {
-                let currentValue = Int(calculatorValue) ?? 0
-                doOperation(operation: currentOperation, currentValue: runningNumber, runningValue: currentValue)
+                let currentValue = Double(calculatorValue) ?? 0.0
+                doOperation(currentValue: currentValue, runningValue: runningNumber)
+
                 currentOperation = .none
+                isDecimalActive = false
+            }
+
+        case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero :
+            let number = button.value
+            if (calculatorValue == CalculatorButton.zero.value || currentOperation != .none) &&
+                calculatorValue != CalculatorButton.decimal.value && currentOperation != .decimal {
+                calculatorValue = number
+            } else {
+                calculatorValue = "\(calculatorValue)\(number)"
             }
 
         case .clear:
             calculatorValue = CalculatorButton.zero.value
+            isDecimalActive = false
         }
     }
 
-    func doOperation(operation: Operation, currentValue: Int, runningValue: Int) {
-        switch operation {
+    private func doOperation(currentValue: Double, runningValue: Double) {
+        var value = 0.0
+        if currentOperation == .decimal {
+            currentOperation = perationBeforeDecimal
+        }
+        switch currentOperation {
         case .addition:
-            calculatorValue = "\(currentValue + runningValue)"
+            value = runningValue + currentValue
         case .subtraction:
-            calculatorValue = "\(currentValue - runningValue)"
+            value = runningValue - currentValue
         case .multiplication:
-            calculatorValue = "\(currentValue * runningValue)"
+            value = runningValue * currentValue
         case .division:
-            calculatorValue = "\(currentValue / runningValue)"
+            value = runningValue / currentValue
         case .sin:
-            calculatorValue = "\(sin(Double(currentValue) * (Double.pi / 180)))"
+            value = sin(currentValue) * (Double.pi / 180)
         case .cos:
-            calculatorValue = "\(cos(Double(currentValue) * (Double.pi / 180)))"
+            value = cos(currentValue) * (Double.pi / 180)
         default:
             break
         }
+        calculatorValue = isDecimalActive ? String(format: "%.2f", value) : String(describing: Int(value))
     }
 }
