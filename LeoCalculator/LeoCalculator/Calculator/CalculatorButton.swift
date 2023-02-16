@@ -33,12 +33,12 @@ enum CalculatorButton: String {
 
     var buttonColor: Color {
         switch self {
-        case .addition, .division, .multiplication, .decimal, .percent, .clear, .negative, .sin, .cos:
-            return .gray
+        case .addition, .division, .multiplication, .percent, .clear, .sin, .cos:
+            return .orange
         case .equal:
             return .green
         default:
-            return .orange
+            return .gray
         }
     }
 

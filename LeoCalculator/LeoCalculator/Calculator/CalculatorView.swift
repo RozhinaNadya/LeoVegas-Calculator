@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CalculatorView: View {
+
+    @StateObject var viewModel = CalculatorViewModel()
     
     let buttons: [[CalculatorButton]] = [
         [.clear, .percent, .sin, .cos],
@@ -22,7 +24,7 @@ struct CalculatorView: View {
             
             HStack {
                 Spacer()
-                Text("0")
+                Text(viewModel.calculatorValue)
                     .font(.system(size: 50))
             }
             
@@ -30,7 +32,7 @@ struct CalculatorView: View {
                 HStack {
                     ForEach(row, id: \.self) { buttonItem in
                         Button {
-                            // TODO: add logic
+                            viewModel.didTapNumber(button: buttonItem)
                         } label: {
                             Text(buttonItem.value)
                                 .foregroundColor(.white)
