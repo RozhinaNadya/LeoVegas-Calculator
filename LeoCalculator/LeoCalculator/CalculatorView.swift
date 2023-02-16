@@ -46,11 +46,14 @@ struct CalculatorView: View {
     ]
     var body: some View {
         VStack(spacing: 8) {
+            Spacer()
+
             HStack {
                 Spacer()
                 Text("0")
-                    .font(.title)
+                    .font(.system(size: 50))
             }
+
             ForEach(buttons, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { buttonItem in
@@ -59,15 +62,15 @@ struct CalculatorView: View {
                         } label: {
                             Text(buttonItem.value)
                                 .foregroundColor(.white)
+                                .font(.title)
                                 .fontWeight(.bold)
-                                .frame(height: 50)
+                                .frame(height: 80)
                                 .frame(maxWidth: .infinity)
                                 .background(buttonItem.value == CalculatorButton.equal.value ? Color.green : Color.orange)
                                 .cornerRadius(25)
                         }
                     }
                 }
-
             }
         }
         .padding(.horizontal, 16)
