@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8480008F299E45B400BE05A0 /* LeoCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480008E299E45B400BE05A0 /* LeoCalculatorApp.swift */; };
+		84800091299E45B400BE05A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84800090299E45B400BE05A0 /* ContentView.swift */; };
+		84800093299E45B600BE05A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84800092299E45B600BE05A0 /* Assets.xcassets */; };
+		84800097299E45B600BE05A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84800096299E45B600BE05A0 /* Preview Assets.xcassets */; };
+		848000A1299E45B600BE05A0 /* LeoCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000A0299E45B600BE05A0 /* LeoCalculatorTests.swift */; };
+		848000AB299E45B600BE05A0 /* LeoCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000AA299E45B600BE05A0 /* LeoCalculatorUITests.swift */; };
+		848000AD299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000AC299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8480009D299E45B600BE05A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84800083299E45B400BE05A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8480008A299E45B400BE05A0;
+			remoteInfo = LeoCalculator;
+		};
+		848000A7299E45B600BE05A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84800083299E45B400BE05A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8480008A299E45B400BE05A0;
+			remoteInfo = LeoCalculator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8480008B299E45B400BE05A0 /* LeoCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeoCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8480008E299E45B400BE05A0 /* LeoCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoCalculatorApp.swift; sourceTree = "<group>"; };
+		84800090299E45B400BE05A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		84800092299E45B600BE05A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84800094299E45B600BE05A0 /* LeoCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LeoCalculator.entitlements; sourceTree = "<group>"; };
+		84800096299E45B600BE05A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8480009C299E45B600BE05A0 /* LeoCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeoCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		848000A0299E45B600BE05A0 /* LeoCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoCalculatorTests.swift; sourceTree = "<group>"; };
+		848000A6299E45B600BE05A0 /* LeoCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeoCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		848000AA299E45B600BE05A0 /* LeoCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoCalculatorUITests.swift; sourceTree = "<group>"; };
+		848000AC299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoCalculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84800088299E45B400BE05A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84800099299E45B600BE05A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		848000A3299E45B600BE05A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84800082299E45B400BE05A0 = {
+			isa = PBXGroup;
+			children = (
+				8480008D299E45B400BE05A0 /* LeoCalculator */,
+				8480009F299E45B600BE05A0 /* LeoCalculatorTests */,
+				848000A9299E45B600BE05A0 /* LeoCalculatorUITests */,
+				8480008C299E45B400BE05A0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8480008C299E45B400BE05A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8480008B299E45B400BE05A0 /* LeoCalculator.app */,
+				8480009C299E45B600BE05A0 /* LeoCalculatorTests.xctest */,
+				848000A6299E45B600BE05A0 /* LeoCalculatorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8480008D299E45B400BE05A0 /* LeoCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				8480008E299E45B400BE05A0 /* LeoCalculatorApp.swift */,
+				84800090299E45B400BE05A0 /* ContentView.swift */,
+				84800092299E45B600BE05A0 /* Assets.xcassets */,
+				84800094299E45B600BE05A0 /* LeoCalculator.entitlements */,
+				84800095299E45B600BE05A0 /* Preview Content */,
+			);
+			path = LeoCalculator;
+			sourceTree = "<group>";
+		};
+		84800095299E45B600BE05A0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				84800096299E45B600BE05A0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8480009F299E45B600BE05A0 /* LeoCalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				848000A0299E45B600BE05A0 /* LeoCalculatorTests.swift */,
+			);
+			path = LeoCalculatorTests;
+			sourceTree = "<group>";
+		};
+		848000A9299E45B600BE05A0 /* LeoCalculatorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				848000AA299E45B600BE05A0 /* LeoCalculatorUITests.swift */,
+				848000AC299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift */,
+			);
+			path = LeoCalculatorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8480008A299E45B400BE05A0 /* LeoCalculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 848000B0299E45B600BE05A0 /* Build configuration list for PBXNativeTarget "LeoCalculator" */;
+			buildPhases = (
+				84800087299E45B400BE05A0 /* Sources */,
+				84800088299E45B400BE05A0 /* Frameworks */,
+				84800089299E45B400BE05A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LeoCalculator;
+			productName = LeoCalculator;
+			productReference = 8480008B299E45B400BE05A0 /* LeoCalculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8480009B299E45B600BE05A0 /* LeoCalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 848000B3299E45B600BE05A0 /* Build configuration list for PBXNativeTarget "LeoCalculatorTests" */;
+			buildPhases = (
+				84800098299E45B600BE05A0 /* Sources */,
+				84800099299E45B600BE05A0 /* Frameworks */,
+				8480009A299E45B600BE05A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8480009E299E45B600BE05A0 /* PBXTargetDependency */,
+			);
+			name = LeoCalculatorTests;
+			productName = LeoCalculatorTests;
+			productReference = 8480009C299E45B600BE05A0 /* LeoCalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		848000A5299E45B600BE05A0 /* LeoCalculatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 848000B6299E45B600BE05A0 /* Build configuration list for PBXNativeTarget "LeoCalculatorUITests" */;
+			buildPhases = (
+				848000A2299E45B600BE05A0 /* Sources */,
+				848000A3299E45B600BE05A0 /* Frameworks */,
+				848000A4299E45B600BE05A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				848000A8299E45B600BE05A0 /* PBXTargetDependency */,
+			);
+			name = LeoCalculatorUITests;
+			productName = LeoCalculatorUITests;
+			productReference = 848000A6299E45B600BE05A0 /* LeoCalculatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84800083299E45B400BE05A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					8480008A299E45B400BE05A0 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					8480009B299E45B600BE05A0 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 8480008A299E45B400BE05A0;
+					};
+					848000A5299E45B600BE05A0 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 8480008A299E45B400BE05A0;
+					};
+				};
+			};
+			buildConfigurationList = 84800086299E45B400BE05A0 /* Build configuration list for PBXProject "LeoCalculator" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84800082299E45B400BE05A0;
+			productRefGroup = 8480008C299E45B400BE05A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8480008A299E45B400BE05A0 /* LeoCalculator */,
+				8480009B299E45B600BE05A0 /* LeoCalculatorTests */,
+				848000A5299E45B600BE05A0 /* LeoCalculatorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84800089299E45B400BE05A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84800097299E45B600BE05A0 /* Preview Assets.xcassets in Resources */,
+				84800093299E45B600BE05A0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8480009A299E45B600BE05A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		848000A4299E45B600BE05A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84800087299E45B400BE05A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84800091299E45B400BE05A0 /* ContentView.swift in Sources */,
+				8480008F299E45B400BE05A0 /* LeoCalculatorApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84800098299E45B600BE05A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				848000A1299E45B600BE05A0 /* LeoCalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		848000A2299E45B600BE05A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				848000AB299E45B600BE05A0 /* LeoCalculatorUITests.swift in Sources */,
+				848000AD299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8480009E299E45B600BE05A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8480008A299E45B400BE05A0 /* LeoCalculator */;
+			targetProxy = 8480009D299E45B600BE05A0 /* PBXContainerItemProxy */;
+		};
+		848000A8299E45B600BE05A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8480008A299E45B400BE05A0 /* LeoCalculator */;
+			targetProxy = 848000A7299E45B600BE05A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		848000AE299E45B600BE05A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		848000AF299E45B600BE05A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		848000B1299E45B600BE05A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LeoCalculator/LeoCalculator.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LeoCalculator/Preview Content\"";
+				DEVELOPMENT_TEAM = L4NR36SDBC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NadyaRozhina.LeoCalculator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		848000B2299E45B600BE05A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LeoCalculator/LeoCalculator.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LeoCalculator/Preview Content\"";
+				DEVELOPMENT_TEAM = L4NR36SDBC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NadyaRozhina.LeoCalculator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		848000B4299E45B600BE05A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L4NR36SDBC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NadyaRozhina.LeoCalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeoCalculator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LeoCalculator";
+			};
+			name = Debug;
+		};
+		848000B5299E45B600BE05A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L4NR36SDBC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NadyaRozhina.LeoCalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeoCalculator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LeoCalculator";
+			};
+			name = Release;
+		};
+		848000B7299E45B600BE05A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L4NR36SDBC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NadyaRozhina.LeoCalculatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LeoCalculator;
+			};
+			name = Debug;
+		};
+		848000B8299E45B600BE05A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L4NR36SDBC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NadyaRozhina.LeoCalculatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LeoCalculator;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84800086299E45B400BE05A0 /* Build configuration list for PBXProject "LeoCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				848000AE299E45B600BE05A0 /* Debug */,
+				848000AF299E45B600BE05A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		848000B0299E45B600BE05A0 /* Build configuration list for PBXNativeTarget "LeoCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				848000B1299E45B600BE05A0 /* Debug */,
+				848000B2299E45B600BE05A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		848000B3299E45B600BE05A0 /* Build configuration list for PBXNativeTarget "LeoCalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				848000B4299E45B600BE05A0 /* Debug */,
+				848000B5299E45B600BE05A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		848000B6299E45B600BE05A0 /* Build configuration list for PBXNativeTarget "LeoCalculatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				848000B7299E45B600BE05A0 /* Debug */,
+				848000B8299E45B600BE05A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84800083299E45B400BE05A0 /* Project object */;
+}
