@@ -29,14 +29,15 @@ enum CalculatorButton: String {
     case equal = "="
     case clear = "AC"
     case negative = "-/+"
-    case percent = "%"
 
     var buttonColor: Color {
         switch self {
-        case .addition, .division, .multiplication, .percent, .clear, .sin, .cos:
+        case .addition, .division, .multiplication, .subtraction:
             return .orange
         case .equal:
             return .green
+        case .sin, .cos, .clear:
+            return Color(UIColor.lightGray)
         default:
             return .gray
         }

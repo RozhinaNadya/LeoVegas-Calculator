@@ -12,9 +12,9 @@ struct CalculatorView: View {
     @StateObject var viewModel = CalculatorViewModel()
     
     let buttons: [[CalculatorButton]] = [
-        [.clear, .percent, .sin, .cos],
+        [.clear, .sin, .cos, .division],
         [.seven, .eight, .nine, .multiplication],
-        [.four, .five, .six, .division],
+        [.four, .five, .six, .subtraction],
         [.one, .two, .three, .addition],
         [.negative, .zero, .decimal, .equal]
     ]
@@ -41,7 +41,7 @@ struct CalculatorView: View {
                                 .frame(height: 80)
                                 .frame(maxWidth: .infinity)
                                 .background(buttonItem.buttonColor)
-                                .cornerRadius(25)
+                                .cornerRadius(40)
                         }
                     }
                 }
