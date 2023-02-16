@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8480008F299E45B400BE05A0 /* LeoCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480008E299E45B400BE05A0 /* LeoCalculatorApp.swift */; };
-		84800091299E45B400BE05A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84800090299E45B400BE05A0 /* ContentView.swift */; };
+		84800091299E45B400BE05A0 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84800090299E45B400BE05A0 /* CalculatorView.swift */; };
 		84800093299E45B600BE05A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84800092299E45B600BE05A0 /* Assets.xcassets */; };
 		84800097299E45B600BE05A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84800096299E45B600BE05A0 /* Preview Assets.xcassets */; };
 		848000A1299E45B600BE05A0 /* LeoCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000A0299E45B600BE05A0 /* LeoCalculatorTests.swift */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		8480008B299E45B400BE05A0 /* LeoCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeoCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8480008E299E45B400BE05A0 /* LeoCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoCalculatorApp.swift; sourceTree = "<group>"; };
-		84800090299E45B400BE05A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		84800090299E45B400BE05A0 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		84800092299E45B600BE05A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84800094299E45B600BE05A0 /* LeoCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LeoCalculator.entitlements; sourceTree = "<group>"; };
 		84800096299E45B600BE05A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				8480008E299E45B400BE05A0 /* LeoCalculatorApp.swift */,
-				84800090299E45B400BE05A0 /* ContentView.swift */,
+				84800090299E45B400BE05A0 /* CalculatorView.swift */,
 				84800092299E45B600BE05A0 /* Assets.xcassets */,
 				84800094299E45B600BE05A0 /* LeoCalculator.entitlements */,
 				84800095299E45B600BE05A0 /* Preview Content */,
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84800091299E45B400BE05A0 /* ContentView.swift in Sources */,
+				84800091299E45B400BE05A0 /* CalculatorView.swift in Sources */,
 				8480008F299E45B400BE05A0 /* LeoCalculatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

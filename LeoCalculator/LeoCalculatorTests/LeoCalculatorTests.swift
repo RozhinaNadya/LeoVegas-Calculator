@@ -2,7 +2,7 @@
 //  LeoCalculatorTests.swift
 //  LeoCalculatorTests
 //
-//  Created by admin on 2023-02-16.
+//  Created by Nadya Rozhina on 2023-02-16.
 //
 
 import XCTest
