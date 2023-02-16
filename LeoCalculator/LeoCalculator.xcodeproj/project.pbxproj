@@ -14,6 +14,7 @@
 		848000A1299E45B600BE05A0 /* LeoCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000A0299E45B600BE05A0 /* LeoCalculatorTests.swift */; };
 		848000AB299E45B600BE05A0 /* LeoCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000AA299E45B600BE05A0 /* LeoCalculatorUITests.swift */; };
 		848000AD299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000AC299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift */; };
+		848000BA299E620800BE05A0 /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000B9299E620800BE05A0 /* CalculatorButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		848000A6299E45B600BE05A0 /* LeoCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeoCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		848000AA299E45B600BE05A0 /* LeoCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoCalculatorUITests.swift; sourceTree = "<group>"; };
 		848000AC299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoCalculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		848000B9299E620800BE05A0 /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				8480008E299E45B400BE05A0 /* LeoCalculatorApp.swift */,
 				84800090299E45B400BE05A0 /* CalculatorView.swift */,
+				848000B9299E620800BE05A0 /* CalculatorButton.swift */,
 				84800092299E45B600BE05A0 /* Assets.xcassets */,
 				84800094299E45B600BE05A0 /* LeoCalculator.entitlements */,
 				84800095299E45B600BE05A0 /* Preview Content */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84800091299E45B400BE05A0 /* CalculatorView.swift in Sources */,
+				848000BA299E620800BE05A0 /* CalculatorButton.swift in Sources */,
 				8480008F299E45B400BE05A0 /* LeoCalculatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

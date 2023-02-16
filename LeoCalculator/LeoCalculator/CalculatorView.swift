@@ -7,36 +7,8 @@
 
 import SwiftUI
 
-enum CalculatorButton: String {
-    case one = "1"
-    case two = "2"
-    case three = "3"
-    case four = "4"
-    case five = "5"
-    case six = "6"
-    case seven = "7"
-    case eight = "8"
-    case nine = "9"
-    case zero = "0"
-    case addition = "+"
-    case subtraction = "-"
-    case multiplication = "x"
-    case division = "÷"
-    case decimal = "."
-    case sin = "sin"
-    case cos = "cos"
-    case equal = "="
-    case clear = "AC"
-    case negative = "-/+"
-    case percent = "%"
-
-    var value: String {
-        rawValue
-    }
-}
-
 struct CalculatorView: View {
-
+    
     let buttons: [[CalculatorButton]] = [
         [.clear, .percent, .sin, .cos],
         [.seven, .eight, .nine, .multiplication],
@@ -47,13 +19,13 @@ struct CalculatorView: View {
     var body: some View {
         VStack(spacing: 8) {
             Spacer()
-
+            
             HStack {
                 Spacer()
                 Text("0")
                     .font(.system(size: 50))
             }
-
+            
             ForEach(buttons, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { buttonItem in
@@ -66,7 +38,7 @@ struct CalculatorView: View {
                                 .fontWeight(.bold)
                                 .frame(height: 80)
                                 .frame(maxWidth: .infinity)
-                                .background(buttonItem.value == CalculatorButton.equal.value ? Color.green : Color.orange)
+                                .background(buttonItem.buttonColor)
                                 .cornerRadius(25)
                         }
                     }
