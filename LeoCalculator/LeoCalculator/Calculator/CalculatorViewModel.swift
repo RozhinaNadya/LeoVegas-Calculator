@@ -5,8 +5,9 @@
 //  Created by Nadya Rozhina on 2023-02-16.
 //
 
-import Foundation
 import Combine
+import Foundation
+import SwiftUI
 
 enum Operation {
     case addition, subtraction, multiplication, division, decimal
@@ -17,7 +18,7 @@ enum Operation {
 class CalculatorViewModel: ObservableObject {
     @Published var bitcoinUsdModel: BitcoinUsdModel?
 
-    @Published var calculatorValue = CalculatorButton.zero.value
+    @Published var calculatorValue = CalculatorButtonModel.zero.value
     @Published var currentOperation: Operation = .none
     @Published var operationBeforeDecimal: Operation = .none
     @Published var runningNumber = 0.0
@@ -26,8 +27,19 @@ class CalculatorViewModel: ObservableObject {
     var isNextNumber = true
     
     private var cancellable: AnyCancellable?
+    
+    func getCalculatorButtons() -> [[CalculatorButtonModel]]{
+        return [
+            [.bitcoin],
+            [.clear, .sin, .cos, .division],
+            [.seven, .eight, .nine, .multiplication],
+            [.four, .five, .six, .subtraction],
+            [.one, .two, .three, .addition],
+            [.negative, .zero, .decimal, .equal]
+        ]
+    }
 
-    func didTapNumber(button: CalculatorButton) {
+    func didTapNumber(button: CalculatorButtonModel) {
         switch button {
         case .decimal:
             operationBeforeDecimal = currentOperation
@@ -70,7 +82,7 @@ class CalculatorViewModel: ObservableObject {
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero :
             let number = button.value
 
-            if isNextNumber || calculatorValue == CalculatorButton.zero.value {
+            if isNextNumber || calculatorValue == CalculatorButtonModel.zero.value {
                 calculatorValue = number
             } else {
                 calculatorValue = "\(calculatorValue)\(number)"
@@ -79,7 +91,7 @@ class CalculatorViewModel: ObservableObject {
             isNextNumber = false
 
         case .clear:
-            calculatorValue = CalculatorButton.zero.value
+            calculatorValue = CalculatorButtonModel.zero.value
             isDecimalActive = false
             isNextNumber = true
         }
@@ -131,5 +143,13 @@ class CalculatorViewModel: ObservableObject {
             .sink(receiveCompletion: { _ in }, receiveValue: {
                 self.bitcoinUsdModel = $0
             })
+    }
+    
+    func buttonHeight(button: CalculatorButtonModel) -> CGFloat {
+        if button == .bitcoin {
+            return UIScreen.main.bounds.height / 20
+        } else {
+            return UIScreen.main.bounds.height / 12
+        }
     }
 }

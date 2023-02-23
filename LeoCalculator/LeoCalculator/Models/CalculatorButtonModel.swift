@@ -1,5 +1,5 @@
 //
-//  CalculatorButton.swift
+//  CalculatorButtonModel.swift
 //  LeoCalculator
 //
 //  Created by Nadya Rozhina on 2023-02-16.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum CalculatorButton: String {
+enum CalculatorButtonModel: String {
     case one = "1"
     case two = "2"
     case three = "3"
