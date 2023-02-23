@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CalculatorView: View {
-
+    
     @StateObject var viewModel = CalculatorViewModel()
     
     var body: some View {
@@ -20,9 +20,27 @@ struct CalculatorView: View {
                 Text(viewModel.calculatorValue)
                     .font(.system(size: 50))
             }
-            ForEach(viewModel.getCalculatorButtons(), id: \.self) { coreRow in
-                HStack {
-                    CalculatorRow(row: coreRow)
+            
+            CalculatorRow(
+                row: viewModel.upperCalculatorButtons,
+                isUpperButton: true
+            )
+            
+            HStack {
+                VStack {
+                    HStack {
+                        CalculatorRow(row: viewModel.topButtons)
+                    }
+                    
+                    ForEach(viewModel.coreButtons, id: \.self) { coreRow in
+                        HStack {
+                            CalculatorRow(row: coreRow)
+                        }
+                    }
+                }
+                
+                VStack {
+                    CalculatorRow(row: viewModel.rightButtons)
                 }
             }
         }
@@ -30,12 +48,13 @@ struct CalculatorView: View {
     }
     
     @ViewBuilder
-    func CalculatorRow(row: [CalculatorButtonModel]) -> some View {
+    func CalculatorRow(row: [CalculatorButtonModel], isUpperButton: Bool = false) -> some View {
         ForEach(row, id: \.self) { buttonItem in
             CustomCalculatorButton(
                 buttonText: buttonItem.value,
                 buttonHeight: viewModel.buttonHeight(button: buttonItem),
                 buttonColor: buttonItem.buttonColor,
+                isUpperButton: isUpperButton,
                 action: {
                     viewModel.didTapNumber(button: buttonItem)
                 }

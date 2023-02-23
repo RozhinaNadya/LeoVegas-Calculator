@@ -11,6 +11,7 @@ struct CustomCalculatorButton: View {
     var buttonText: String
     var buttonHeight: CGFloat
     var buttonColor: Color = .gray
+    var isUpperButton = false
     var action: () -> Void
     
     var body: some View {
@@ -20,11 +21,15 @@ struct CustomCalculatorButton: View {
                 .font(.title)
                 .fontWeight(.bold)
                 .frame(height: buttonHeight)
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: getButtonWidth())
                 .background(buttonColor)
                 .cornerRadius(40)
                 .padding(.horizontal, 2)
         }
+    }
+    
+    private func getButtonWidth() -> CGFloat {
+        isUpperButton ? .infinity : (UIScreen.main.bounds.width - 56) / 4
     }
 }
 

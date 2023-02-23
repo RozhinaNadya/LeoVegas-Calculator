@@ -22,22 +22,42 @@ class CalculatorViewModel: ObservableObject {
     @Published var currentOperation: Operation = .none
     @Published var operationBeforeDecimal: Operation = .none
     @Published var runningNumber = 0.0
+    
+    private var cancellable: AnyCancellable?
 
     var isDecimalActive = false
     var isNextNumber = true
     
-    private var cancellable: AnyCancellable?
+    @Published var upperCalculatorButtons : [CalculatorButtonModel] = [.bitcoin]
+    @Published var topButtons: [CalculatorButtonModel] = [.clear, .sin, .cos]
+    @Published var rightButtons: [CalculatorButtonModel] = [.division, .multiplication, .subtraction, .addition, .equal]
     
-    func getCalculatorButtons() -> [[CalculatorButtonModel]]{
-        return [
-            [.bitcoin],
-            [.clear, .sin, .cos, .division],
-            [.seven, .eight, .nine, .multiplication],
-            [.four, .five, .six, .subtraction],
-            [.one, .two, .three, .addition],
-            [.negative, .zero, .decimal, .equal]
-        ]
+    var coreButtons: [[CalculatorButtonModel]] = [
+        [.seven, .eight, .nine],
+        [.four, .five, .six],
+        [.one, .two, .three],
+        [.negative, .zero, .decimal]
+    ]
+    @Published var otherButtons: [CalculatorButtonModel] = [.clear, .sin, .cos, .division, .multiplication, .subtraction, .addition, .equal, .bitcoin]
+    
+    init() {
+//        createCalculatorButtons()
     }
+    
+    // TODO: fix this logic
+//    func createCalculatorButtons() {
+//
+//        otherButtons.map {
+//            if topButtons.count <= 3 {
+//                topButtons.append($0)
+//            } else {
+//                if $0.value == CalculatorButtonModel.bitcoin.value {
+//                    upperCalculatorButton.append($0)
+//                }
+//                rightButtons.append($0)
+//            }
+//        }
+//    }
 
     func didTapNumber(button: CalculatorButtonModel) {
         switch button {
