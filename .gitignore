@@ -29,6 +29,7 @@ DerivedData/
 *.ipa
 *.dSYM.zip
 *.dSYM
+.DS_Store
 
 ## Playgrounds
 timeline.xctimeline
@@ -47,6 +48,9 @@ playground.xcworkspace
 # .swiftpm
 
 .build/
+.swiftpm
+
+.build/.DS_Store
 
 # CocoaPods
 #
