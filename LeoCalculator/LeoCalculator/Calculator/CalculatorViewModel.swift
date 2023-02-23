@@ -86,19 +86,28 @@ class CalculatorViewModel: ObservableObject {
         switch currentOperation {
         case .addition:
             value = runningValue + currentValue
+            
         case .subtraction:
             value = runningValue - currentValue
+            
         case .multiplication:
             value = runningValue * currentValue
+            
         case .division:
             value = runningValue / currentValue
+            
         case .sin:
-            value = sin(currentValue) * (Double.pi / 180)
+            value = sin(currentValue * Double.pi / 180)
+            isDecimalActive = true
+
         case .cos:
-            value = cos(currentValue) * (Double.pi / 180)
+            value = cos(currentValue * Double.pi / 180)
+            isDecimalActive = true
+
         default:
             break
         }
-        calculatorValue = isDecimalActive ? String(value) : String(describing: Int(value))
+        
+        calculatorValue = isDecimalActive ? String(format: "%.2f", value) : String(describing: Int(value))
     }
 }
