@@ -11,40 +11,61 @@ struct CalculatorView: View {
     
     @StateObject var viewModel = CalculatorViewModel()
     
+    @State private var presentSettings = false
+    
     var body: some View {
-        VStack(spacing: 8) {
-            Spacer()
-            
-            HStack {
-                Spacer()
-                Text(viewModel.calculatorValue)
-                    .font(.system(size: 50))
-            }
-            
-            CalculatorRow(
-                row: viewModel.upperCalculatorButtons,
-                isUpperButton: true
-            )
-            
-            HStack {
-                VStack {
-                    HStack {
-                        CalculatorRow(row: viewModel.topButtons)
-                    }
-                    
-                    ForEach(viewModel.coreButtons, id: \.self) { coreRow in
-                        HStack {
-                            CalculatorRow(row: coreRow)
+        NavigationView {
+            VStack(spacing: 8) {
+                HStack {
+                    NavigationLink(isActive: $presentSettings) {
+                        CalculatorSettingsView()
+                    } label: {
+                        Button {
+                            presentSettings.toggle()
+                        } label: {
+                            Image(systemName: "gearshape.fill")
+                                .resizable()
+                                .foregroundColor(.orange)
+                                .frame(width: 30, height: 30)
                         }
                     }
+                    
+                    Spacer()
                 }
                 
-                VStack {
-                    CalculatorRow(row: viewModel.rightButtons)
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    Text(viewModel.calculatorValue)
+                        .font(.system(size: 50))
+                }
+                
+                CalculatorRow(
+                    row: viewModel.upperCalculatorButtons,
+                    isUpperButton: true
+                )
+                
+                HStack {
+                    VStack {
+                        HStack {
+                            CalculatorRow(row: viewModel.topButtons)
+                        }
+                        
+                        ForEach(viewModel.coreButtons, id: \.self) { coreRow in
+                            HStack {
+                                CalculatorRow(row: coreRow)
+                            }
+                        }
+                    }
+                    
+                    VStack {
+                        CalculatorRow(row: viewModel.rightButtons)
+                    }
                 }
             }
+            .padding(.horizontal, 16)
         }
-        .padding(.horizontal, 16)
     }
     
     @ViewBuilder

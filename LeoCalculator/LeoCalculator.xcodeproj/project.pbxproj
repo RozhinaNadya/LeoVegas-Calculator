@@ -10,6 +10,7 @@
 		8464490829A77CE800A40EE1 /* BitcoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464490729A77CE800A40EE1 /* BitcoinManager.swift */; };
 		8464490B29A7806100A40EE1 /* BitcoinUsdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464490A29A7806100A40EE1 /* BitcoinUsdModel.swift */; };
 		8464490D29A7A17800A40EE1 /* CustomCalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464490C29A7A17800A40EE1 /* CustomCalculatorButton.swift */; };
+		8464491029A7CEAC00A40EE1 /* CalculatorSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464490F29A7CEAC00A40EE1 /* CalculatorSettingsView.swift */; };
 		8480008F299E45B400BE05A0 /* LeoCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480008E299E45B400BE05A0 /* LeoCalculatorApp.swift */; };
 		84800091299E45B400BE05A0 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84800090299E45B400BE05A0 /* CalculatorView.swift */; };
 		84800093299E45B600BE05A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84800092299E45B600BE05A0 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		8464490729A77CE800A40EE1 /* BitcoinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinManager.swift; sourceTree = "<group>"; };
 		8464490A29A7806100A40EE1 /* BitcoinUsdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinUsdModel.swift; sourceTree = "<group>"; };
 		8464490C29A7A17800A40EE1 /* CustomCalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalculatorButton.swift; sourceTree = "<group>"; };
+		8464490F29A7CEAC00A40EE1 /* CalculatorSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorSettingsView.swift; sourceTree = "<group>"; };
 		8480008B299E45B400BE05A0 /* LeoCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeoCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8480008E299E45B400BE05A0 /* LeoCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoCalculatorApp.swift; sourceTree = "<group>"; };
 		84800090299E45B400BE05A0 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				8464490E29A7A28A00A40EE1 /* CalculatorComponents */,
 				848000BC299E648F00BE05A0 /* CalculatorViewModel.swift */,
 				84800090299E45B400BE05A0 /* CalculatorView.swift */,
+				8464490F29A7CEAC00A40EE1 /* CalculatorSettingsView.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				848000BD299E648F00BE05A0 /* CalculatorViewModel.swift in Sources */,
 				8464490829A77CE800A40EE1 /* BitcoinManager.swift in Sources */,
 				8464490D29A7A17800A40EE1 /* CustomCalculatorButton.swift in Sources */,
+				8464491029A7CEAC00A40EE1 /* CalculatorSettingsView.swift in Sources */,
 				8480008F299E45B400BE05A0 /* LeoCalculatorApp.swift in Sources */,
 				8464490B29A7806100A40EE1 /* BitcoinUsdModel.swift in Sources */,
 			);
