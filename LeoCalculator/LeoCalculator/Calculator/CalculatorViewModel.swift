@@ -6,22 +6,26 @@
 //
 
 import Foundation
+import Combine
 
 enum Operation {
     case addition, subtraction, multiplication, division, decimal
-    case sin, cos
+    case sin, cos, bitcoin
     case none
 }
 
 class CalculatorViewModel: ObservableObject {
+    @Published var bitcoinUsdModel: BitcoinUsdModel?
 
     @Published var calculatorValue = CalculatorButton.zero.value
     @Published var currentOperation: Operation = .none
     @Published var operationBeforeDecimal: Operation = .none
-    @Published var isNextNumber: Bool = true
     @Published var runningNumber = 0.0
 
     var isDecimalActive = false
+    var isNextNumber = true
+    
+    private var cancellable: AnyCancellable?
 
     func didTapNumber(button: CalculatorButton) {
         switch button {
@@ -33,7 +37,7 @@ class CalculatorViewModel: ObservableObject {
             calculatorValue = "\(calculatorValue)\(number)"
             isNextNumber = false
 
-        case .addition, .subtraction, .multiplication, .division, .sin, .cos, .negative, .equal:
+        case .addition, .subtraction, .multiplication, .division, .sin, .cos, .negative, .bitcoin, .equal:
             if button == .negative {
                 runningNumber = -(Double(calculatorValue) ?? 0.00)
             } else if button != .equal {
@@ -54,6 +58,9 @@ class CalculatorViewModel: ObservableObject {
                 currentOperation = .cos
             } else if button == .negative {
                 calculatorValue = "\(runningNumber)"
+            } else if button == .bitcoin {
+                getBitcoinUsdPrice()
+                currentOperation = .bitcoin
             } else if button == .equal {
                 let currentValue = Double(calculatorValue) ?? 0.0
                 doOperation(currentValue: currentValue, runningValue: runningNumber)
@@ -103,11 +110,26 @@ class CalculatorViewModel: ObservableObject {
         case .cos:
             value = cos(currentValue * Double.pi / 180)
             isDecimalActive = true
+            
+        case .bitcoin:
+            guard let bitcoinUsdPrice = bitcoinUsdModel?.bpi.usd.rateFloat else {
+                return
+            }
+            value = currentValue * bitcoinUsdPrice
+            isDecimalActive = true
 
         default:
             break
         }
         
         calculatorValue = isDecimalActive ? String(format: "%.2f", value) : String(describing: Int(value))
+    }
+    
+    func getBitcoinUsdPrice() {
+        self.cancellable = BitcoinManager.shared.getBitcoinUsdPrice()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { _ in }, receiveValue: {
+                self.bitcoinUsdModel = $0
+            })
     }
 }

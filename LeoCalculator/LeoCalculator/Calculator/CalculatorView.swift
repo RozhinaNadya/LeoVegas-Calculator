@@ -12,6 +12,7 @@ struct CalculatorView: View {
     @StateObject var viewModel = CalculatorViewModel()
     
     let buttons: [[CalculatorButton]] = [
+        [.bitcoin],
         [.clear, .sin, .cos, .division],
         [.seven, .eight, .nine, .multiplication],
         [.four, .five, .six, .subtraction],
@@ -38,7 +39,7 @@ struct CalculatorView: View {
                                 .foregroundColor(.white)
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .frame(height: 80)
+                                .frame(height: buttonHeight(button: buttonItem))
                                 .frame(maxWidth: .infinity)
                                 .background(buttonItem.buttonColor)
                                 .cornerRadius(40)
@@ -48,6 +49,14 @@ struct CalculatorView: View {
             }
         }
         .padding(.horizontal, 16)
+    }
+    
+    private func buttonHeight(button: CalculatorButton) -> CGFloat {
+        if button == .bitcoin {
+            return UIScreen.main.bounds.height / 20
+        } else {
+            return UIScreen.main.bounds.height / 12
+        }
     }
 }
 

@@ -19,7 +19,7 @@ class BitcoinManager: IBitcoinManager {
     func getBitcoinUsdPrice() -> AnyPublisher<BitcoinUsdModel, Error> {
         guard let url = URL(string: .BitcoinCurrentPriceUrl) else { fatalError("Someting wrong with URL") }
 
-        var urlRequest = URLRequest(url: url)
+        let urlRequest = URLRequest(url: url)
 
         return URLSession.shared.dataTaskPublisher(for: urlRequest)
             .tryMap {

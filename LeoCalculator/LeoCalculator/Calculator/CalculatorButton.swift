@@ -29,10 +29,11 @@ enum CalculatorButton: String {
     case equal = "="
     case clear = "AC"
     case negative = "-/+"
+    case bitcoin = "₿"
 
     var buttonColor: Color {
         switch self {
-        case .addition, .division, .multiplication, .subtraction:
+        case .addition, .division, .multiplication, .subtraction, .bitcoin:
             return .orange
         case .equal:
             return .green

@@ -13,10 +13,14 @@ struct BitcoinUsdModel: Decodable {
     struct Bpi: Decodable {
         var usd: Usd
         
+        enum CodingKeys: String, CodingKey {
+            case usd = "USD"
+        }
+        
         struct Usd: Decodable {
             var rateFloat: Double
             
-            enum CodingKeys: String, CodingKey{
+            enum CodingKeys: String, CodingKey {
                 case rateFloat = "rate_float"
             }
         }
