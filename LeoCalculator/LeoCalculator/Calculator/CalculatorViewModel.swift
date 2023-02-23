@@ -17,7 +17,8 @@ class CalculatorViewModel: ObservableObject {
 
     @Published var calculatorValue = CalculatorButton.zero.value
     @Published var currentOperation: Operation = .none
-    @Published var perationBeforeDecimal: Operation = .none
+    @Published var operationBeforeDecimal: Operation = .none
+    @Published var isNextNumber: Bool = true
     @Published var runningNumber = 0.0
 
     var isDecimalActive = false
@@ -25,11 +26,12 @@ class CalculatorViewModel: ObservableObject {
     func didTapNumber(button: CalculatorButton) {
         switch button {
         case .decimal:
-            perationBeforeDecimal = currentOperation
+            operationBeforeDecimal = currentOperation
             currentOperation = .decimal
             isDecimalActive = true
             let number = button.value
             calculatorValue = "\(calculatorValue)\(number)"
+            isNextNumber = false
 
         case .addition, .subtraction, .multiplication, .division, .sin, .cos, .negative, .equal:
             if button == .negative {
@@ -55,30 +57,31 @@ class CalculatorViewModel: ObservableObject {
             } else if button == .equal {
                 let currentValue = Double(calculatorValue) ?? 0.0
                 doOperation(currentValue: currentValue, runningValue: runningNumber)
-
-                currentOperation = .none
-                isDecimalActive = false
             }
+            isNextNumber = true
 
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero :
             let number = button.value
-            if (calculatorValue == CalculatorButton.zero.value || currentOperation != .none) &&
-                calculatorValue != CalculatorButton.decimal.value && currentOperation != .decimal {
+
+            if isNextNumber || calculatorValue == CalculatorButton.zero.value {
                 calculatorValue = number
             } else {
                 calculatorValue = "\(calculatorValue)\(number)"
             }
+            
+            isNextNumber = false
 
         case .clear:
             calculatorValue = CalculatorButton.zero.value
             isDecimalActive = false
+            isNextNumber = true
         }
     }
 
     private func doOperation(currentValue: Double, runningValue: Double) {
         var value = 0.0
         if currentOperation == .decimal {
-            currentOperation = perationBeforeDecimal
+            currentOperation = operationBeforeDecimal
         }
         switch currentOperation {
         case .addition:
@@ -96,6 +99,6 @@ class CalculatorViewModel: ObservableObject {
         default:
             break
         }
-        calculatorValue = isDecimalActive ? String(format: "%.2f", value) : String(describing: Int(value))
+        calculatorValue = isDecimalActive ? String(value) : String(describing: Int(value))
     }
 }
