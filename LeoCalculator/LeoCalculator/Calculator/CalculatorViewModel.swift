@@ -164,12 +164,4 @@ class CalculatorViewModel: ObservableObject {
                 self.bitcoinUsdModel = $0
             })
     }
-    
-    func buttonHeight(button: CalculatorButtonModel) -> CGFloat {
-        if button == .bitcoin {
-            return UIScreen.main.bounds.height / 20
-        } else {
-            return UIScreen.main.bounds.height / 12
-        }
-    }
 }

@@ -51,9 +51,7 @@ struct CalculatorView: View {
     func CalculatorRow(row: [CalculatorButtonModel], isUpperButton: Bool = false) -> some View {
         ForEach(row, id: \.self) { buttonItem in
             CustomCalculatorButton(
-                buttonText: buttonItem.value,
-                buttonHeight: viewModel.buttonHeight(button: buttonItem),
-                buttonColor: buttonItem.buttonColor,
+                button: buttonItem,
                 isUpperButton: isUpperButton,
                 action: {
                     viewModel.didTapNumber(button: buttonItem)
