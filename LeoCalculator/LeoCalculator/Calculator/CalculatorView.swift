@@ -20,23 +20,27 @@ struct CalculatorView: View {
                 Text(viewModel.calculatorValue)
                     .font(.system(size: 50))
             }
-            
-            ForEach(viewModel.getCalculatorButtons(), id: \.self) { row in
+            ForEach(viewModel.getCalculatorButtons(), id: \.self) { coreRow in
                 HStack {
-                    ForEach(row, id: \.self) { buttonItem in
-                        CustomCalculatorButton(
-                            buttonText: buttonItem.value,
-                            buttonHeight: viewModel.buttonHeight(button: buttonItem),
-                            buttonColor: buttonItem.buttonColor,
-                            action: {
-                                viewModel.didTapNumber(button: buttonItem)
-                            }
-                        )
-                    }
+                    CalculatorRow(row: coreRow)
                 }
             }
         }
         .padding(.horizontal, 16)
+    }
+    
+    @ViewBuilder
+    func CalculatorRow(row: [CalculatorButtonModel]) -> some View {
+        ForEach(row, id: \.self) { buttonItem in
+            CustomCalculatorButton(
+                buttonText: buttonItem.value,
+                buttonHeight: viewModel.buttonHeight(button: buttonItem),
+                buttonColor: buttonItem.buttonColor,
+                action: {
+                    viewModel.didTapNumber(button: buttonItem)
+                }
+            )
+        }
     }
 }
 
