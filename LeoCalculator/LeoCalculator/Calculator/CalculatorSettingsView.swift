@@ -13,7 +13,6 @@ struct CalculatorSettingsView: View {
     
     var body: some View {
         VStack(spacing: 8) {
-            Text("Select features")
             Form {
                 Section {
                     ForEach($viewModel.features) { $feature in
@@ -21,6 +20,8 @@ struct CalculatorSettingsView: View {
                     }
                 }
             }
+            .navigationTitle("Select features")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

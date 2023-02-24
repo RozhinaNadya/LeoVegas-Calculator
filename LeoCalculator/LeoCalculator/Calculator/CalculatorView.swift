@@ -16,23 +16,6 @@ struct CalculatorView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 8) {
-                HStack(alignment: .top) {
-                    NavigationLink(isActive: $presentSettings) {
-                        CalculatorSettingsView()
-                    } label: {
-                        Button {
-                            presentSettings.toggle()
-                        } label: {
-                            Image(systemName: "gearshape.fill")
-                                .resizable()
-                                .foregroundColor(.orange)
-                                .frame(width: 30, height: 30)
-                        }
-                    }
-                    
-                    Spacer()
-                }
-                
                 Spacer()
                 
                 HStack {
@@ -43,14 +26,13 @@ struct CalculatorView: View {
                 
                 if let upperCalculatorButton = viewModel.upperCalculatorButton {
                     CustomCalculatorButton(button: upperCalculatorButton,
-                                           maxHeight: (UIScreen.main.bounds.height - 48) / 20,
                                            rowType: .upper,
                                            action: {
                         viewModel.didTapNumber(button: upperCalculatorButton)
                     })
                 }
                 
-                HStack {
+                HStack(alignment: .bottom) {
                     VStack {
                         HStack {
                             CalculatorRow(row: viewModel.topButtons, type: .top)
@@ -69,16 +51,38 @@ struct CalculatorView: View {
                 }
             }
             .padding(.horizontal, 16)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    NavigationLink(isActive: $presentSettings) {
+                        CalculatorSettingsView()
+                    } label: {
+                        settingsButton()
+                    }
+                }
+            }
         }
     }
     
     @ViewBuilder
-    func CalculatorRow(row: [CalculatorButtonModel], type: RowType, topButtonCount: CGFloat = 1) -> some View {
+    func settingsButton() -> some View {
+        Button {
+            presentSettings.toggle()
+        } label: {
+            Image(systemName: "gearshape.fill")
+                .resizable()
+                .foregroundColor(.orange)
+                .frame(width: 30, height: 30)
+        }
+    }
+    
+    @ViewBuilder
+    func CalculatorRow(row: [CalculatorButtonModel], type: RowType) -> some View {
         ForEach(row, id: \.self) { buttonItem in
             CustomCalculatorButton(
                 button: buttonItem,
                 rowType: type,
-                topButtonsCount: topButtonCount,
+                topButtonsCount: CGFloat(row.count),
+                rightButtonsCount: CGFloat(row.count),
                 action: {
                     viewModel.didTapNumber(button: buttonItem)
                 }

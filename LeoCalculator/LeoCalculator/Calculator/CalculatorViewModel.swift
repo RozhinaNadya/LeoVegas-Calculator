@@ -244,7 +244,8 @@ class CalculatorViewModel: ObservableObject {
             rightButtons.swapAt(equalIndex, rightButtons.count - 1)
             
         case .bitcoin:
-            if rightButtons.count < 5 {
+            if rightButtons.count < 5,
+               !rightButtons.contains(where: {$0 == .bitcoin}) {
                 rightButtons.append(.bitcoin)
             } else if !topButtons.contains(where: {$0 == .bitcoin}) {
                 upperCalculatorButton = .bitcoin

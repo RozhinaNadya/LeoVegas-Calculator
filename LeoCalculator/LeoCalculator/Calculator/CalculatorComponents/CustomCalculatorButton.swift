@@ -16,9 +16,9 @@ enum RowType {
 
 struct CustomCalculatorButton: View {
     var button: CalculatorButtonModel
-    var maxHeight = (UIScreen.main.bounds.height - 48) / 10
     var rowType: RowType
     var topButtonsCount: CGFloat = 1
+    var rightButtonsCount: CGFloat = 1
     var action: () -> Void
     
     var body: some View {
@@ -27,7 +27,7 @@ struct CustomCalculatorButton: View {
                 .foregroundColor(.white)
                 .font(.title)
                 .fontWeight(.bold)
-                .frame(maxHeight: maxHeight)
+                .frame(maxHeight: getButtonHeight(buttonsCount: rightButtonsCount))
                 .frame(maxWidth: getButtonWidth(buttonsCount: topButtonsCount))
                 .background(button.buttonColor)
                 .cornerRadius(40)
@@ -44,6 +44,36 @@ struct CustomCalculatorButton: View {
             return ((UIScreen.main.bounds.width - defaultWidth) / buttonsCount)
         case .upper:
             return .infinity
+        }
+    }
+    
+    private func getButtonHeight(buttonsCount: CGFloat) -> CGFloat {
+        let defaultHeight = (UIScreen.main.bounds.height - 32) / 10
+
+        switch rowType {
+        case .core, .top:
+            return defaultHeight
+            
+        case .right:
+            // TODO: need to rewrite
+            if button == .equal {
+                if buttonsCount == 1 {
+                    return 5 * defaultHeight
+                } else if buttonsCount == 2 {
+                    return 4 * defaultHeight
+                } else if buttonsCount == 3 {
+                    return 3 * defaultHeight
+                } else if buttonsCount == 4 {
+                    return 2 * defaultHeight
+                } else {
+                    return defaultHeight
+                }
+            } else {
+               return defaultHeight
+            }
+            
+        case .upper:
+            return (UIScreen.main.bounds.height - 32) / 20
         }
     }
 }
