@@ -35,9 +35,9 @@ class CalculatorViewModel: ObservableObject {
     var isDecimalActive = false
     var isNextNumber = true
     
-    @Published var upperCalculatorButton : CalculatorButtonModel? = .bitcoin
+    @Published var upperCalculatorButton : CalculatorButtonModel?
     @Published var topButtons: [CalculatorButtonModel] = [.clear]
-    @Published var rightButtons: [CalculatorButtonModel] = [.division, .multiplication, .subtraction, .addition, .equal]
+    @Published var rightButtons: [CalculatorButtonModel] = [.equal]
     
     var coreButtons: [[CalculatorButtonModel]] = [
         [.seven, .eight, .nine],
@@ -66,6 +66,8 @@ class CalculatorViewModel: ObservableObject {
                     } else {
                         addFeature(feature: feature)
                     }
+                    
+                    equalAndBitcoinButtonsFixPlace()
                 }
             }
             .store(in: &cancellables)
@@ -178,29 +180,37 @@ class CalculatorViewModel: ObservableObject {
     }
     
     private func removeFeature(feature: FeatureList) {
-        
         guard let featureForRemove = CalculatorButtonModel(rawValue: feature.id) else { return }
-        guard let equalIndex = rightButtons.firstIndex(of: .equal) else { return }
-
-        if let topButtonIndex = topButtons.firstIndex(where: { $0 == featureForRemove}) {
-            topButtons.remove(at: topButtonIndex)
-            if !topButtons.contains(where: {$0 == .bitcoin}),
-               !rightButtons.contains(where: {$0 == .bitcoin}),
-               featureForRemove != .bitcoin
-            {
-                topButtons.append(.bitcoin)
-                upperCalculatorButton = nil
+        
+        switch feature.operation {
+        case .sin, .cos:
+            if let topButtonIndex = topButtons.firstIndex(where: { $0 == featureForRemove}) {
+                topButtons.remove(at: topButtonIndex)
+                if !topButtons.contains(where: {$0 == .bitcoin}),
+                   !rightButtons.contains(where: {$0 == .bitcoin}) {
+                    topButtons.append(.bitcoin)
+                }
             }
-        } else if let rightButtonIndex = rightButtons.firstIndex(where: { $0 == featureForRemove}) {
-            rightButtons.remove(at: rightButtonIndex)
-            if !topButtons.contains(where: {$0 == .bitcoin}),
-               !rightButtons.contains(where: {$0 == .bitcoin}),
-               featureForRemove != .bitcoin
-            {
-                rightButtons.append(.bitcoin)
-                rightButtons.swapAt(equalIndex, rightButtons.count - 1)
-                upperCalculatorButton = nil
+            
+        case .division, .multiplication, .subtraction, .addition:
+            if let rightButtonIndex = rightButtons.firstIndex(where: { $0 == featureForRemove}) {
+                rightButtons.remove(at: rightButtonIndex)
+                if !topButtons.contains(where: {$0 == .bitcoin}),
+                   !rightButtons.contains(where: {$0 == .bitcoin}) {
+                    rightButtons.append(.bitcoin)
+                }
             }
+            
+        case .bitcoin:
+            upperCalculatorButton = nil
+            if let bitcoinIndex = topButtons.firstIndex(where: { $0 == .bitcoin}) {
+                topButtons.remove(at: bitcoinIndex)
+            } else if let bitcoinIndex = rightButtons.firstIndex(where: { $0 == .bitcoin}) {
+                rightButtons.remove(at: bitcoinIndex)
+            }
+            
+        default:
+            break
         }
     }
     
@@ -219,12 +229,12 @@ class CalculatorViewModel: ObservableObject {
                 upperCalculatorButton = .bitcoin
             }
             
-        case .division, .multiplication, .subtraction, .addition, .bitcoin:
+        case .division, .multiplication, .subtraction, .addition:
             if (rightButtons.firstIndex(where: { $0 == featureForAdd}) == nil) {
                 rightButtons.append(featureForAdd)
             }
             
-            if rightButtons.count > 5,
+            if rightButtons.count >= 5,
                let bitcoinIndex = rightButtons.firstIndex(where: { $0 == .bitcoin}) {
                 rightButtons.remove(at: bitcoinIndex)
                 upperCalculatorButton = .bitcoin
@@ -233,8 +243,27 @@ class CalculatorViewModel: ObservableObject {
             guard let equalIndex = rightButtons.firstIndex(of: .equal) else { return }
             rightButtons.swapAt(equalIndex, rightButtons.count - 1)
             
+        case .bitcoin:
+            if rightButtons.count < 5 {
+                rightButtons.append(.bitcoin)
+            } else if !topButtons.contains(where: {$0 == .bitcoin}) {
+                upperCalculatorButton = .bitcoin
+
+            }
+            
         default:
             break
+        }
+    }
+    
+    private func equalAndBitcoinButtonsFixPlace() {
+        guard let equalIndex = rightButtons.firstIndex(of: .equal) else { return }
+
+        rightButtons.swapAt(equalIndex, rightButtons.count - 1)
+        
+        if topButtons.contains(where: {$0 == .bitcoin}) ||
+            rightButtons.contains(where: {$0 == .bitcoin}) {
+            upperCalculatorButton = nil
         }
     }
 }

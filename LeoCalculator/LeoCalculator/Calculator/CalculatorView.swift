@@ -43,8 +43,8 @@ struct CalculatorView: View {
                 
                 if let upperCalculatorButton = viewModel.upperCalculatorButton {
                     CustomCalculatorButton(button: upperCalculatorButton,
-                                           isUpperButton: true,
                                            maxHeight: (UIScreen.main.bounds.height - 48) / 20,
+                                           rowType: .upper,
                                            action: {
                         viewModel.didTapNumber(button: upperCalculatorButton)
                     })
@@ -53,18 +53,18 @@ struct CalculatorView: View {
                 HStack {
                     VStack {
                         HStack {
-                            CalculatorRow(row: viewModel.topButtons)
+                            CalculatorRow(row: viewModel.topButtons, type: .top)
                         }
                         
                         ForEach(viewModel.coreButtons, id: \.self) { coreRow in
                             HStack {
-                                CalculatorRow(row: coreRow)
+                                CalculatorRow(row: coreRow, type: .core)
                             }
                         }
                     }
                     
                     VStack {
-                        CalculatorRow(row: viewModel.rightButtons)
+                        CalculatorRow(row: viewModel.rightButtons, type: .right)
                     }
                 }
             }
@@ -73,10 +73,12 @@ struct CalculatorView: View {
     }
     
     @ViewBuilder
-    func CalculatorRow(row: [CalculatorButtonModel]) -> some View {
+    func CalculatorRow(row: [CalculatorButtonModel], type: RowType, topButtonCount: CGFloat = 1) -> some View {
         ForEach(row, id: \.self) { buttonItem in
             CustomCalculatorButton(
                 button: buttonItem,
+                rowType: type,
+                topButtonsCount: topButtonCount,
                 action: {
                     viewModel.didTapNumber(button: buttonItem)
                 }
