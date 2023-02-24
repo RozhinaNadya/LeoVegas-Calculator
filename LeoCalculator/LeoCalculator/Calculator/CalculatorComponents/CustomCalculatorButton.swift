@@ -55,8 +55,8 @@ struct CustomCalculatorButton: View {
             return defaultHeight
             
         case .right:
-            // TODO: need to rewrite
-            return button == .equal ? defaultHeight * (6 - buttonsCount) : defaultHeight
+            let equalHeight = defaultHeight * (6 - buttonsCount) + (8 * (5 - buttonsCount))
+            return button == .equal ? equalHeight : defaultHeight
             
         case .upper:
             return (UIScreen.main.bounds.height - 32) / 20
