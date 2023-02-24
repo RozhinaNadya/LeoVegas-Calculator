@@ -15,6 +15,12 @@ enum Operation {
     case none
 }
 
+struct FeatureList: Identifiable {
+    var id: String
+    var operation: Operation
+    var isActive = true
+}
+
 class CalculatorViewModel: ObservableObject {
     @Published var bitcoinUsdModel: BitcoinUsdModel?
 
@@ -24,12 +30,13 @@ class CalculatorViewModel: ObservableObject {
     @Published var runningNumber = 0.0
     
     private var cancellable: AnyCancellable?
+    internal var cancellables = Set<AnyCancellable>()
 
     var isDecimalActive = false
     var isNextNumber = true
     
-    @Published var upperCalculatorButtons : [CalculatorButtonModel] = [.bitcoin]
-    @Published var topButtons: [CalculatorButtonModel] = [.clear, .sin, .cos]
+    @Published var upperCalculatorButton : CalculatorButtonModel? = .bitcoin
+    @Published var topButtons: [CalculatorButtonModel] = [.clear]
     @Published var rightButtons: [CalculatorButtonModel] = [.division, .multiplication, .subtraction, .addition, .equal]
     
     var coreButtons: [[CalculatorButtonModel]] = [
@@ -38,26 +45,31 @@ class CalculatorViewModel: ObservableObject {
         [.one, .two, .three],
         [.negative, .zero, .decimal]
     ]
-    @Published var otherButtons: [CalculatorButtonModel] = [.clear, .sin, .cos, .division, .multiplication, .subtraction, .addition, .equal, .bitcoin]
+    
+    @Published var features = [
+        FeatureList(id: "sin", operation: .sin),
+        FeatureList(id: "cos", operation: .cos),
+        FeatureList(id: "+", operation: .addition),
+        FeatureList(id: "-", operation: .subtraction),
+        FeatureList(id: "x", operation: .multiplication),
+        FeatureList(id: "÷", operation: .division),
+        FeatureList(id: "₿", operation: .bitcoin)
+    ]
     
     init() {
-//        createCalculatorButtons()
+        $features
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] featureLits in
+                featureLits.forEach { feature in
+                    if !feature.isActive {
+                        removeFeature(feature: feature)
+                    } else {
+                        addFeature(feature: feature)
+                    }
+                }
+            }
+            .store(in: &cancellables)
     }
-    
-    // TODO: fix this logic
-//    func createCalculatorButtons() {
-//
-//        otherButtons.map {
-//            if topButtons.count <= 3 {
-//                topButtons.append($0)
-//            } else {
-//                if $0.value == CalculatorButtonModel.bitcoin.value {
-//                    upperCalculatorButton.append($0)
-//                }
-//                rightButtons.append($0)
-//            }
-//        }
-//    }
 
     func didTapNumber(button: CalculatorButtonModel) {
         switch button {
@@ -163,5 +175,66 @@ class CalculatorViewModel: ObservableObject {
             .sink(receiveCompletion: { _ in }, receiveValue: {
                 self.bitcoinUsdModel = $0
             })
+    }
+    
+    private func removeFeature(feature: FeatureList) {
+        
+        guard let featureForRemove = CalculatorButtonModel(rawValue: feature.id) else { return }
+        guard let equalIndex = rightButtons.firstIndex(of: .equal) else { return }
+
+        if let topButtonIndex = topButtons.firstIndex(where: { $0 == featureForRemove}) {
+            topButtons.remove(at: topButtonIndex)
+            if !topButtons.contains(where: {$0 == .bitcoin}),
+               !rightButtons.contains(where: {$0 == .bitcoin}),
+               featureForRemove != .bitcoin
+            {
+                topButtons.append(.bitcoin)
+                upperCalculatorButton = nil
+            }
+        } else if let rightButtonIndex = rightButtons.firstIndex(where: { $0 == featureForRemove}) {
+            rightButtons.remove(at: rightButtonIndex)
+            if !topButtons.contains(where: {$0 == .bitcoin}),
+               !rightButtons.contains(where: {$0 == .bitcoin}),
+               featureForRemove != .bitcoin
+            {
+                rightButtons.append(.bitcoin)
+                rightButtons.swapAt(equalIndex, rightButtons.count - 1)
+                upperCalculatorButton = nil
+            }
+        }
+    }
+    
+    private func addFeature(feature: FeatureList) {
+        guard let featureForAdd = CalculatorButtonModel(rawValue: feature.id) else { return }
+
+        switch feature.operation {
+        case .sin, .cos:
+            if (topButtons.firstIndex(where: { $0 == featureForAdd}) == nil) {
+                topButtons.append(featureForAdd)
+            }
+            
+            if topButtons.count > 3,
+               let bitcoinIndex = topButtons.firstIndex(where: { $0 == .bitcoin}) {
+                topButtons.remove(at: bitcoinIndex)
+                upperCalculatorButton = .bitcoin
+            }
+            
+        case .division, .multiplication, .subtraction, .addition, .bitcoin:
+            if (rightButtons.firstIndex(where: { $0 == featureForAdd}) == nil) {
+                rightButtons.append(featureForAdd)
+            }
+            
+            if rightButtons.count > 5,
+               let bitcoinIndex = rightButtons.firstIndex(where: { $0 == .bitcoin}) {
+                rightButtons.remove(at: bitcoinIndex)
+                upperCalculatorButton = .bitcoin
+            }
+            
+            guard let equalIndex = rightButtons.firstIndex(of: .equal) else { return }
+            rightButtons.swapAt(equalIndex, rightButtons.count - 1)
+            
+        default:
+            break
+        }
     }
 }

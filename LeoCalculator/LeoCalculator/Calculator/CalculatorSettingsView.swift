@@ -7,31 +7,17 @@
 
 import SwiftUI
 
-struct FeatureList: Identifiable {
-    var id: String
-    var operation: Operation
-    var isActive = true
-}
-
 struct CalculatorSettingsView: View {
     
-    @State var lists = [
-        FeatureList(id: "sine", operation: .sin),
-        FeatureList(id: "cosine", operation: .cos),
-        FeatureList(id: "addition", operation: .addition),
-        FeatureList(id: "subtraction", operation: .subtraction),
-        FeatureList(id: "multiplication", operation: .multiplication),
-        FeatureList(id: "division", operation: .division),
-        FeatureList(id: "bitcoin", operation: .bitcoin)
-    ]
+    @EnvironmentObject var viewModel: CalculatorViewModel
     
     var body: some View {
         VStack(spacing: 8) {
             Text("Select features")
             Form {
                 Section {
-                    ForEach($lists) { $list in
-                        Toggle(list.id, isOn: $list.isActive)
+                    ForEach($viewModel.features) { $feature in
+                        Toggle(feature.id, isOn: $feature.isActive)
                     }
                 }
             }

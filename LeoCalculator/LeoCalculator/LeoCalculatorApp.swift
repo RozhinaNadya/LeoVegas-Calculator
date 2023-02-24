@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct LeoCalculatorApp: App {
+    var calculatorViewModel = CalculatorViewModel()
+
     var body: some Scene {
         WindowGroup {
             CalculatorView()
+                .environmentObject(calculatorViewModel)
         }
     }
 }

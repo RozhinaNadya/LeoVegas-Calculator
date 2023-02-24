@@ -9,14 +9,14 @@ import SwiftUI
 
 struct CalculatorView: View {
     
-    @StateObject var viewModel = CalculatorViewModel()
+    @EnvironmentObject var viewModel: CalculatorViewModel
     
     @State private var presentSettings = false
     
     var body: some View {
         NavigationView {
             VStack(spacing: 8) {
-                HStack {
+                HStack(alignment: .top) {
                     NavigationLink(isActive: $presentSettings) {
                         CalculatorSettingsView()
                     } label: {
@@ -41,10 +41,14 @@ struct CalculatorView: View {
                         .font(.system(size: 50))
                 }
                 
-                CalculatorRow(
-                    row: viewModel.upperCalculatorButtons,
-                    isUpperButton: true
-                )
+                if let upperCalculatorButton = viewModel.upperCalculatorButton {
+                    CustomCalculatorButton(button: upperCalculatorButton,
+                                           isUpperButton: true,
+                                           maxHeight: (UIScreen.main.bounds.height - 48) / 20,
+                                           action: {
+                        viewModel.didTapNumber(button: upperCalculatorButton)
+                    })
+                }
                 
                 HStack {
                     VStack {
@@ -69,11 +73,10 @@ struct CalculatorView: View {
     }
     
     @ViewBuilder
-    func CalculatorRow(row: [CalculatorButtonModel], isUpperButton: Bool = false) -> some View {
+    func CalculatorRow(row: [CalculatorButtonModel]) -> some View {
         ForEach(row, id: \.self) { buttonItem in
             CustomCalculatorButton(
                 button: buttonItem,
-                isUpperButton: isUpperButton,
                 action: {
                     viewModel.didTapNumber(button: buttonItem)
                 }
