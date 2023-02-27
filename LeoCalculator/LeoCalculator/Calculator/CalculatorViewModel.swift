@@ -26,7 +26,7 @@ class CalculatorViewModel: ObservableObject {
 
     @Published var calculatorValue = CalculatorButtonModel.zero.value
     @Published var currentOperation: Operation = .none
-    @Published var operationBeforeDecimal: Operation = .none
+    @Published var previousOperation: Operation = .none
     @Published var runningNumber = 0.0
     
     private var cancellable: AnyCancellable?
@@ -76,7 +76,7 @@ class CalculatorViewModel: ObservableObject {
     func didTapNumber(button: CalculatorButtonModel) {
         switch button {
         case .decimal:
-            operationBeforeDecimal = currentOperation
+            previousOperation = currentOperation
             currentOperation = .decimal
             isDecimalActive = true
             let number = button.value
@@ -134,7 +134,7 @@ class CalculatorViewModel: ObservableObject {
     private func doOperation(currentValue: Double, runningValue: Double) {
         var value = 0.0
         if currentOperation == .decimal {
-            currentOperation = operationBeforeDecimal
+            currentOperation = previousOperation
         }
         switch currentOperation {
         case .addition:
