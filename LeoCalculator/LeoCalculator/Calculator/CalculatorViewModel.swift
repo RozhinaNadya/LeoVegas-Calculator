@@ -106,22 +106,22 @@ class CalculatorViewModel: ObservableObject {
                 currentOperation = .division
             } else if button == .sin {
                 currentOperation = .sin
+                doEqualOperation()
             } else if button == .cos {
                 currentOperation = .cos
+                doEqualOperation()
             } else if button == .negative {
                 calculatorValue = "\(runningNumber)"
             } else if button == .bitcoin {
                 getBitcoinUsdPrice()
                 currentOperation = .bitcoin
+                doEqualOperation()
             }
             
             isNextNumber = true
             
         case .equal:
-            let currentValue = Double(calculatorValue) ?? 0.0
-            doOperation(currentValue: currentValue, runningValue: runningNumber)
-            currentOperation = .none
-            previousOperation = .none
+            doEqualOperation()
 
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero :
             let number = button.value
@@ -141,6 +141,13 @@ class CalculatorViewModel: ObservableObject {
             isDecimalActive = false
             isNextNumber = true
         }
+    }
+    
+    private func doEqualOperation() {
+        let currentValue = Double(calculatorValue) ?? 0.0
+        doOperation(currentValue: currentValue, runningValue: runningNumber)
+        currentOperation = .none
+        previousOperation = .none
     }
 
     private func doOperation(currentValue: Double, runningValue: Double) {
