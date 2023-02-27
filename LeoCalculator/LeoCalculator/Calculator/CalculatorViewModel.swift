@@ -29,8 +29,7 @@ class CalculatorViewModel: ObservableObject {
     @Published var previousOperation: Operation = .none
     @Published var runningNumber = 0.0
     
-    private var cancellable: AnyCancellable?
-    internal var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
 
     var isDecimalActive = false
     var isNextNumber = true
@@ -191,11 +190,11 @@ class CalculatorViewModel: ObservableObject {
     }
     
     func getBitcoinUsdPrice() {
-        self.cancellable = BitcoinManager.shared.getBitcoinUsdPrice()
+        BitcoinManager.shared.getBitcoinUsdPrice()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in }, receiveValue: {
                 self.bitcoinUsdModel = $0
-            })
+            }).store(in: &cancellables)
     }
     
     private func removeFeature(feature: FeatureList) {
