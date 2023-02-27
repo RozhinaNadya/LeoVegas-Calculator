@@ -74,16 +74,22 @@ class CalculatorViewModel: ObservableObject {
     }
 
     func didTapNumber(button: CalculatorButtonModel) {
+        if previousOperation != .none, button != .equal {
+            let currentValue = Double(calculatorValue) ?? 0.0
+            doOperation(currentValue: currentValue, runningValue: runningNumber)
+        }
+        
+        previousOperation = currentOperation
+            
         switch button {
         case .decimal:
-            previousOperation = currentOperation
             currentOperation = .decimal
             isDecimalActive = true
             let number = button.value
             calculatorValue = "\(calculatorValue)\(number)"
             isNextNumber = false
 
-        case .addition, .subtraction, .multiplication, .division, .sin, .cos, .negative, .bitcoin, .equal:
+        case .addition, .subtraction, .multiplication, .division, .sin, .cos, .negative, .bitcoin:
             if button == .negative {
                 runningNumber = -(Double(calculatorValue) ?? 0.00)
             } else if button != .equal {
@@ -107,11 +113,15 @@ class CalculatorViewModel: ObservableObject {
             } else if button == .bitcoin {
                 getBitcoinUsdPrice()
                 currentOperation = .bitcoin
-            } else if button == .equal {
-                let currentValue = Double(calculatorValue) ?? 0.0
-                doOperation(currentValue: currentValue, runningValue: runningNumber)
             }
+            
             isNextNumber = true
+            
+        case .equal:
+            let currentValue = Double(calculatorValue) ?? 0.0
+            doOperation(currentValue: currentValue, runningValue: runningNumber)
+            currentOperation = .none
+            previousOperation = .none
 
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero :
             let number = button.value
@@ -126,6 +136,8 @@ class CalculatorViewModel: ObservableObject {
 
         case .clear:
             calculatorValue = CalculatorButtonModel.zero.value
+            currentOperation = .none
+            previousOperation = .none
             isDecimalActive = false
             isNextNumber = true
         }
