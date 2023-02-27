@@ -47,13 +47,13 @@ class CalculatorViewModel: ObservableObject {
     ]
     
     @Published var features = [
-        FeatureList(id: "sin", operation: .sin),
-        FeatureList(id: "cos", operation: .cos),
-        FeatureList(id: "+", operation: .addition),
-        FeatureList(id: "-", operation: .subtraction),
-        FeatureList(id: "x", operation: .multiplication),
-        FeatureList(id: "÷", operation: .division),
-        FeatureList(id: "₿", operation: .bitcoin)
+        FeatureList(id: CalculatorButtonModel.sin.value, operation: .sin),
+        FeatureList(id: CalculatorButtonModel.cos.value, operation: .cos),
+        FeatureList(id: CalculatorButtonModel.addition.value, operation: .addition),
+        FeatureList(id: CalculatorButtonModel.subtraction.value, operation: .subtraction),
+        FeatureList(id: CalculatorButtonModel.multiplication.value, operation: .multiplication),
+        FeatureList(id: CalculatorButtonModel.division.value, operation: .division),
+        FeatureList(id: CalculatorButtonModel.bitcoin.value, operation: .bitcoin)
     ]
     
     init() {
