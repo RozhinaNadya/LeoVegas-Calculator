@@ -20,6 +20,8 @@
 		848000AD299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000AC299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift */; };
 		848000BA299E620800BE05A0 /* CalculatorButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000B9299E620800BE05A0 /* CalculatorButtonModel.swift */; };
 		848000BD299E648F00BE05A0 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000BC299E648F00BE05A0 /* CalculatorViewModel.swift */; };
+		848B66B929AD0D2100EF0BB0 /* ErrorAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B66B829AD0D2100EF0BB0 /* ErrorAlerts.swift */; };
+		848B66BC29AD13DB00EF0BB0 /* Alert+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B66BB29AD13DB00EF0BB0 /* Alert+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		848000AC299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeoCalculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		848000B9299E620800BE05A0 /* CalculatorButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonModel.swift; sourceTree = "<group>"; };
 		848000BC299E648F00BE05A0 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
+		848B66B829AD0D2100EF0BB0 /* ErrorAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlerts.swift; sourceTree = "<group>"; };
+		848B66BB29AD13DB00EF0BB0 /* Alert+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 		8480008D299E45B400BE05A0 /* LeoCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				848B66BA29AD13C300EF0BB0 /* Extensions */,
+				848B66B729AD0D0000EF0BB0 /* Common */,
 				8464490929A77CFD00A40EE1 /* Models */,
 				8464490629A77CA400A40EE1 /* Sources */,
 				848000BB299E647300BE05A0 /* Calculator */,
@@ -177,6 +183,22 @@
 				8464490F29A7CEAC00A40EE1 /* CalculatorSettingsView.swift */,
 			);
 			path = Calculator;
+			sourceTree = "<group>";
+		};
+		848B66B729AD0D0000EF0BB0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				848B66B829AD0D2100EF0BB0 /* ErrorAlerts.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		848B66BA29AD13C300EF0BB0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				848B66BB29AD13DB00EF0BB0 /* Alert+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,9 +333,11 @@
 			files = (
 				84800091299E45B400BE05A0 /* CalculatorView.swift in Sources */,
 				848000BA299E620800BE05A0 /* CalculatorButtonModel.swift in Sources */,
+				848B66B929AD0D2100EF0BB0 /* ErrorAlerts.swift in Sources */,
 				848000BD299E648F00BE05A0 /* CalculatorViewModel.swift in Sources */,
 				8464490829A77CE800A40EE1 /* BitcoinManager.swift in Sources */,
 				8464490D29A7A17800A40EE1 /* CustomCalculatorButton.swift in Sources */,
+				848B66BC29AD13DB00EF0BB0 /* Alert+.swift in Sources */,
 				8464491029A7CEAC00A40EE1 /* CalculatorSettingsView.swift in Sources */,
 				8480008F299E45B400BE05A0 /* LeoCalculatorApp.swift in Sources */,
 				8464490B29A7806100A40EE1 /* BitcoinUsdModel.swift in Sources */,

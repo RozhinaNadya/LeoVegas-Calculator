@@ -29,15 +29,11 @@ class BitcoinManager: IBitcoinManager {
     }
     
     private func decodeBitcoinUsdJson(response: URLResponse, data: Data?) throws -> BitcoinUsdModel {
-        guard let data else { throw ResponseError.decodeSectionsTitlesError }
+        guard let data else { throw ResponseError.decodeBitcoinPriceError }
 
         let decodedBitcoinCurrentPrice = try JSONDecoder().decode(BitcoinUsdModel.self, from: data)
         return decodedBitcoinCurrentPrice
     }
-}
-
-enum ResponseError: Error {
-    case decodeSectionsTitlesError
 }
 
 private extension String {

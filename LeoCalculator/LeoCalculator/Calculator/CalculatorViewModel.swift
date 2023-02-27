@@ -23,27 +23,17 @@ struct FeatureList: Identifiable {
 
 class CalculatorViewModel: ObservableObject {
     @Published var bitcoinUsdModel: BitcoinUsdModel?
+    
+    @Published private(set) var activeError: LocalizedError?
 
     @Published var calculatorValue = CalculatorButtonModel.zero.value
     @Published var currentOperation: Operation = .none
     @Published var previousOperation: Operation = .none
     @Published var runningNumber = 0.0
     
-    private var cancellables = Set<AnyCancellable>()
-
-    var isDecimalActive = false
-    var isNextNumber = true
-    
     @Published var upperCalculatorButton : CalculatorButtonModel?
     @Published var topButtons: [CalculatorButtonModel] = [.clear]
     @Published var rightButtons: [CalculatorButtonModel] = [.equal]
-    
-    var coreButtons: [[CalculatorButtonModel]] = [
-        [.seven, .eight, .nine],
-        [.four, .five, .six],
-        [.one, .two, .three],
-        [.negative, .zero, .decimal]
-    ]
     
     @Published var features = [
         FeatureList(id: CalculatorButtonModel.sin.value, operation: .sin),
@@ -54,6 +44,27 @@ class CalculatorViewModel: ObservableObject {
         FeatureList(id: CalculatorButtonModel.division.value, operation: .division),
         FeatureList(id: CalculatorButtonModel.bitcoin.value, operation: .bitcoin)
     ]
+    
+    var coreButtons: [[CalculatorButtonModel]] = [
+        [.seven, .eight, .nine],
+        [.four, .five, .six],
+        [.one, .two, .three],
+        [.negative, .zero, .decimal]
+    ]
+    
+    var isPresentingAlert: Binding<Bool> {
+            return Binding<Bool>(get: {
+                return self.activeError != nil
+            }, set: { newValue in
+                guard !newValue else { return }
+                self.activeError = nil
+            })
+        }
+    
+    private var cancellables = Set<AnyCancellable>()
+
+    var isDecimalActive = false
+    var isNextNumber = true
     
     init() {
         $features
@@ -165,7 +176,11 @@ class CalculatorViewModel: ObservableObject {
             value = runningValue * currentValue
             
         case .division:
-            value = runningValue / currentValue
+            if currentValue != 0 {
+                value = runningValue / currentValue
+            } else {
+                activeError = CalculationError.zeroDivisionError
+            }
             
         case .sin:
             value = sin(currentValue * Double.pi / 180)
@@ -176,11 +191,12 @@ class CalculatorViewModel: ObservableObject {
             isDecimalActive = true
             
         case .bitcoin:
-            guard let bitcoinUsdPrice = bitcoinUsdModel?.bpi.usd.rateFloat else {
-                return
+            if let bitcoinUsdPrice = bitcoinUsdModel?.bpi.usd.rateFloat {
+                value = currentValue * bitcoinUsdPrice
+                isDecimalActive = true
+            } else {
+                activeError = ResponseError.decodeBitcoinPriceError
             }
-            value = currentValue * bitcoinUsdPrice
-            isDecimalActive = true
 
         default:
             break

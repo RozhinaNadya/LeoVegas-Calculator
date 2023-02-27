@@ -60,6 +60,9 @@ struct CalculatorView: View {
                     }
                 }
             }
+            .alert(isPresented: viewModel.isPresentingAlert, content: {
+                Alert(localizedError: viewModel.activeError ?? CalculationError.defaultCalculationError)
+            })
         }
     }
     
