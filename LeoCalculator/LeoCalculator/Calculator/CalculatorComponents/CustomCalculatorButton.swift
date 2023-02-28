@@ -15,6 +15,8 @@ enum RowType {
 }
 
 struct CustomCalculatorButton: View {
+    @State private var orientation = UIDeviceOrientation.unknown
+    
     var button: CalculatorButtonModel
     var rowType: RowType
     var topButtonsCount: CGFloat = 1
@@ -33,16 +35,18 @@ struct CustomCalculatorButton: View {
                 .cornerRadius(40)
                 .padding(.horizontal, 2)
         }
+        .onRotate { newOrientation in
+            orientation = newOrientation
+        }
     }
     
     private func getButtonWidth(buttonsCount: CGFloat) -> CGFloat {
         let defaultWidth = (UIScreen.main.bounds.width - 56) / 4
         switch rowType {
-        case .core, .right:
-            return defaultWidth
-        case .top:
-            return ((UIScreen.main.bounds.width - defaultWidth) / buttonsCount)
-        case .upper:
+        case .right:
+            return orientation.isLandscape ? (defaultWidth * 2) : defaultWidth
+
+        case .upper, .core, .top:
             return .infinity
         }
     }
