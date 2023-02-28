@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct DeviceRotationViewModifier: ViewModifier {
     let action: (UIDeviceOrientation) -> Void
