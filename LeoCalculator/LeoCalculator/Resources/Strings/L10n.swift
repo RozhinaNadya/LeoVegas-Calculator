@@ -12,10 +12,7 @@ import Foundation
 internal enum L10n {
   internal enum ErrorsText {
     internal enum Description {
-      /// Localizable.strings
-      ///   LeoCalculator
-      /// 
-      ///   Created by Nadya Rozhina on 2023-02-28.
+      /// The bitcoin price is not found
       internal static let decodeBitcoinPrice = L10n.tr("Localizable", "errorsText.description.decodeBitcoinPrice", fallback: "The bitcoin price is not found")
       /// Calculation is impossible
       internal static let impossibleCalculation = L10n.tr("Localizable", "errorsText.description.impossibleCalculation", fallback: "Calculation is impossible")
@@ -40,6 +37,13 @@ internal enum L10n {
       /// Please change 0 to another number and try again
       internal static let zeroDivision = L10n.tr("Localizable", "errorsText.recoverySuggestion.zeroDivision", fallback: "Please change 0 to another number and try again")
     }
+  }
+  internal enum SettingsView {
+    /// Localizable.strings
+    ///   LeoCalculator
+    /// 
+    ///   Created by Nadya Rozhina on 2023-02-28.
+    internal static let navigationTitle = L10n.tr("Localizable", "settingsView.navigationTitle", fallback: "Select features")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

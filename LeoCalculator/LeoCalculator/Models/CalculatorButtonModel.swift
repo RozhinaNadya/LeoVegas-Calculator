@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+private typealias myColors = Colors.Common
+
 enum CalculatorButtonModel: String {
     case one = "1"
     case two = "2"
@@ -34,9 +36,9 @@ enum CalculatorButtonModel: String {
     var buttonColor: Color {
         switch self {
         case .addition, .division, .multiplication, .subtraction, .bitcoin:
-            return .orange
+            return myColors.orange.justColor
         case .equal:
-            return .green
+            return myColors.green.justColor
         case .sin, .cos, .clear:
             return Color(UIColor.lightGray)
         default:

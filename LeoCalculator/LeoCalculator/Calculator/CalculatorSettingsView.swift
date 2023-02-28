@@ -20,7 +20,7 @@ struct CalculatorSettingsView: View {
                     }
                 }
             }
-            .navigationTitle("Select features")
+            .navigationTitle(L10n.SettingsView.navigationTitle)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(viewModel.isBackButtonHidden)
         }

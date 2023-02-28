@@ -73,7 +73,7 @@ struct CalculatorView: View {
         } label: {
             Image(systemName: "gearshape.fill")
                 .resizable()
-                .foregroundColor(.orange)
+                .foregroundColor(Colors.Common.orange.justColor)
                 .frame(width: 30, height: 30)
         }
     }

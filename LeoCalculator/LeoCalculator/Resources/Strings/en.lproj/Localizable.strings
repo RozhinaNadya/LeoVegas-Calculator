@@ -5,6 +5,9 @@
   Created by Nadya Rozhina on 2023-02-28.
   
 */
+// MARK: SettingsView
+"settingsView.navigationTitle" = "Select features";
+
 // MARK: Errors
 "errorsText.description.decodeBitcoinPrice" = "The bitcoin price is not found";
 "errorsText.description.impossibleCalculation" = "Calculation is impossible";
