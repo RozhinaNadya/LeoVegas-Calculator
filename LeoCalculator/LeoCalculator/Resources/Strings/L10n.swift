@@ -23,20 +23,20 @@ internal enum L10n {
       internal static let noOperations = L10n.tr("Localizable", "errorsText.description.noOperations", fallback: "Sorry, this is impossible")
     }
     internal enum FailureReason {
-      /// Something unexpectable
-      internal static let `default` = L10n.tr("Localizable", "errorsText.failureReason.default", fallback: "Something unexpectable")
       /// It looks like you removed all actions
       internal static let noOperations = L10n.tr("Localizable", "errorsText.failureReason.noOperations", fallback: "It looks like you removed all actions")
+      /// Something unexpectable
+      internal static let reasonDefault = L10n.tr("Localizable", "errorsText.failureReason.reasonDefault", fallback: "Something unexpectable")
       /// It looks like you want to divide by zero...
       internal static let zeroDivision = L10n.tr("Localizable", "errorsText.failureReason.zeroDivision", fallback: "It looks like you want to divide by zero...")
     }
     internal enum RecoverySuggestion {
       /// Please check your calculations and try again
       internal static let calculationDefault = L10n.tr("Localizable", "errorsText.recoverySuggestion.calculationDefault", fallback: "Please check your calculations and try again")
-      /// Please try again
-      internal static let `default` = L10n.tr("Localizable", "errorsText.recoverySuggestion.default", fallback: "Please try again")
       /// Please choose at least one operation
       internal static let noOperations = L10n.tr("Localizable", "errorsText.recoverySuggestion.noOperations", fallback: "Please choose at least one operation")
+      /// Please try again
+      internal static let suggestionDefault = L10n.tr("Localizable", "errorsText.recoverySuggestion.suggestionDefault", fallback: "Please try again")
       /// Please change 0 to another number and try again
       internal static let zeroDivision = L10n.tr("Localizable", "errorsText.recoverySuggestion.zeroDivision", fallback: "Please change 0 to another number and try again")
     }

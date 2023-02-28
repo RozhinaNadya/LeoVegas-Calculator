@@ -10,11 +10,11 @@
 "errorsText.description.impossibleCalculation" = "Calculation is impossible";
 "errorsText.description.noOperations" = "Sorry, this is impossible";
 
-"errorsText.failureReason.default" = "Something unexpectable";
+"errorsText.failureReason.reasonDefault" = "Something unexpectable";
 "errorsText.failureReason.zeroDivision" = "It looks like you want to divide by zero...";
 "errorsText.failureReason.noOperations" = "It looks like you removed all actions";
 
-"errorsText.recoverySuggestion.default" = "Please try again";
+"errorsText.recoverySuggestion.suggestionDefault" = "Please try again";
 "errorsText.recoverySuggestion.calculationDefault" = "Please check your calculations and try again";
 "errorsText.recoverySuggestion.zeroDivision" = "Please change 0 to another number and try again";
 "errorsText.recoverySuggestion.noOperations" = "Please choose at least one operation";

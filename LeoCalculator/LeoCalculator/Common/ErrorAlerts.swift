@@ -7,27 +7,29 @@
 
 import SwiftUI
 
+private typealias myString = L10n.ErrorsText
+
 enum ResponseError: LocalizedError {
     case decodeBitcoinPriceError
     
     var errorDescription: String? {
         switch self {
         case .decodeBitcoinPriceError:
-            return "The bitcoin price is not found"
+            return myString.Description.decodeBitcoinPrice
         }
     }
     
     var failureReason: String? {
         switch self {
         case .decodeBitcoinPriceError:
-            return "Something unexpectable"
+            return myString.FailureReason.reasonDefault
         }
     }
     
     var recoverySuggestion: String? {
         switch self {
         case .decodeBitcoinPriceError:
-            return "Please try again"
+            return myString.RecoverySuggestion.suggestionDefault
         }
     }
 }
@@ -40,31 +42,31 @@ enum CalculationError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .defaultCalculationError, .zeroDivisionError:
-            return "Calculation is impossible"
+            return myString.Description.impossibleCalculation
         case .noOperations:
-            return "Sorry, this is impossible"
+            return myString.Description.noOperations
         }
     }
     
     var failureReason: String? {
         switch self {
         case .defaultCalculationError:
-            return "Something unexpectable"
+            return myString.FailureReason.reasonDefault
         case .zeroDivisionError:
-            return "It looks like you want to divide by zero..."
+            return myString.FailureReason.zeroDivision
         case .noOperations:
-            return "It looks like you removed all actions"
+            return myString.FailureReason.noOperations
         }
     }
     
     var recoverySuggestion: String? {
         switch self {
         case .defaultCalculationError:
-            return "Please check your calculations and try again"
+            return myString.RecoverySuggestion.calculationDefault
         case .zeroDivisionError:
-            return "Please change 0 to another number and try again"
+            return myString.RecoverySuggestion.zeroDivision
         case .noOperations:
-            return "Please choose at least one operation"
+            return myString.RecoverySuggestion.noOperations
         }
     }
 }
