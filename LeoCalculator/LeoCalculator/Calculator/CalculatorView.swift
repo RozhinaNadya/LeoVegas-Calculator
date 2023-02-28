@@ -64,6 +64,7 @@ struct CalculatorView: View {
                 Alert(localizedError: viewModel.activeError ?? CalculationError.defaultCalculationError)
             })
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     @ViewBuilder
