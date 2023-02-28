@@ -84,6 +84,14 @@ class CalculatorViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    
+    func getBitcoinUsdPrice() {
+        BitcoinManager.shared.getBitcoinUsdPrice()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { _ in }, receiveValue: {
+                self.bitcoinUsdModel = $0
+            }).store(in: &cancellables)
+    }
 
     func didTapNumber(button: CalculatorButtonModel) {
         if previousOperation != .none, button != .equal {
@@ -207,14 +215,6 @@ class CalculatorViewModel: ObservableObject {
         calculatorValue = isDecimalActive ? String(format: "%.2f", value) : String(describing: Int(value))
     }
     
-    func getBitcoinUsdPrice() {
-        BitcoinManager.shared.getBitcoinUsdPrice()
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { _ in }, receiveValue: {
-                self.bitcoinUsdModel = $0
-            }).store(in: &cancellables)
-    }
-    
     private func removeFeature(feature: FeatureList) {
         guard let featureForRemove = CalculatorButtonModel(rawValue: feature.id) else { return }
         
@@ -276,7 +276,7 @@ class CalculatorViewModel: ObservableObject {
                 rightButtons.append(featureForAdd)
             }
             
-            if rightButtons.count >= 5,
+            if rightButtons.count > 5,
                let bitcoinIndex = rightButtons.firstIndex(where: { $0 == .bitcoin}) {
                 rightButtons.remove(at: bitcoinIndex)
                 upperCalculatorButton = .bitcoin
@@ -291,7 +291,6 @@ class CalculatorViewModel: ObservableObject {
                 rightButtons.append(.bitcoin)
             } else if !topButtons.contains(where: {$0 == .bitcoin}) {
                 upperCalculatorButton = .bitcoin
-
             }
             
         default:
