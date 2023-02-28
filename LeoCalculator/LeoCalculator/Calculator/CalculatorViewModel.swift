@@ -36,13 +36,13 @@ class CalculatorViewModel: ObservableObject {
     @Published var rightButtons: [CalculatorButtonModel] = [.equal]
     
     @Published var features = [
+        FeatureList(id: CalculatorButtonModel.bitcoin.value, operation: .bitcoin),
         FeatureList(id: CalculatorButtonModel.sin.value, operation: .sin),
         FeatureList(id: CalculatorButtonModel.cos.value, operation: .cos),
-        FeatureList(id: CalculatorButtonModel.addition.value, operation: .addition),
-        FeatureList(id: CalculatorButtonModel.subtraction.value, operation: .subtraction),
-        FeatureList(id: CalculatorButtonModel.multiplication.value, operation: .multiplication),
         FeatureList(id: CalculatorButtonModel.division.value, operation: .division),
-        FeatureList(id: CalculatorButtonModel.bitcoin.value, operation: .bitcoin)
+        FeatureList(id: CalculatorButtonModel.multiplication.value, operation: .multiplication),
+        FeatureList(id: CalculatorButtonModel.subtraction.value, operation: .subtraction),
+        FeatureList(id: CalculatorButtonModel.addition.value, operation: .addition)
     ]
     
     var coreButtons: [[CalculatorButtonModel]] = [
@@ -67,6 +67,8 @@ class CalculatorViewModel: ObservableObject {
     var isNextNumber = true
     
     init() {
+        getBitcoinUsdPrice()
+        
         $features
             .receive(on: RunLoop.main)
             .sink { [unowned self] featureLits in
@@ -220,8 +222,7 @@ class CalculatorViewModel: ObservableObject {
         case .sin, .cos:
             if let topButtonIndex = topButtons.firstIndex(where: { $0 == featureForRemove}) {
                 topButtons.remove(at: topButtonIndex)
-                if !topButtons.contains(where: {$0 == .bitcoin}),
-                   !rightButtons.contains(where: {$0 == .bitcoin}) {
+                if shouldAddBitcoin() {
                     topButtons.append(.bitcoin)
                 }
             }
@@ -229,8 +230,7 @@ class CalculatorViewModel: ObservableObject {
         case .division, .multiplication, .subtraction, .addition:
             if let rightButtonIndex = rightButtons.firstIndex(where: { $0 == featureForRemove}) {
                 rightButtons.remove(at: rightButtonIndex)
-                if !topButtons.contains(where: {$0 == .bitcoin}),
-                   !rightButtons.contains(where: {$0 == .bitcoin}) {
+                if shouldAddBitcoin() {
                     rightButtons.append(.bitcoin)
                 }
             }
@@ -246,6 +246,14 @@ class CalculatorViewModel: ObservableObject {
         default:
             break
         }
+    }
+    
+    private func shouldAddBitcoin() -> Bool {
+        !topButtons.contains(where: {$0 == .bitcoin}) &&
+           !rightButtons.contains(where: {$0 == .bitcoin}) &&
+           features.contains(where: {
+               $0.operation == .bitcoin && $0.isActive == true
+           })
     }
     
     private func addFeature(feature: FeatureList) {

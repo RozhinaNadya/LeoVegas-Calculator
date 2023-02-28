@@ -35,11 +35,14 @@ enum ResponseError: LocalizedError {
 enum CalculationError: LocalizedError {
     case defaultCalculationError
     case zeroDivisionError
+    case noOperations
     
     var errorDescription: String? {
         switch self {
         case .defaultCalculationError, .zeroDivisionError:
             return "Calculation is impossible"
+        case .noOperations:
+            return "Sorry, this is impossible"
         }
     }
     
@@ -49,6 +52,8 @@ enum CalculationError: LocalizedError {
             return "Something unexpectable"
         case .zeroDivisionError:
             return "It looks like you want to divide by zero..."
+        case .noOperations:
+            return "It looks like you removed all actions"
         }
     }
     
@@ -58,6 +63,8 @@ enum CalculationError: LocalizedError {
             return "Please check your calculations and try again"
         case .zeroDivisionError:
             return "Please change 0 to another number and try again"
+        case .noOperations:
+            return "Please choose at least one operation"
         }
     }
 }
