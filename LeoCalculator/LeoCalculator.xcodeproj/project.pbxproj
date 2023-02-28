@@ -24,14 +24,11 @@
 		848B66BC29AD13DB00EF0BB0 /* Alert+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B66BB29AD13DB00EF0BB0 /* Alert+.swift */; };
 		84CA381229AE1B4C0034545E /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 84CA381129AE1B4C0034545E /* swiftgen.yml */; };
 		84CA381829AE1BFA0034545E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CA381729AE1BFA0034545E /* Colors.xcassets */; };
-		84CA381A29AE1C0A0034545E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CA381929AE1C0A0034545E /* Images.xcassets */; };
-		84CA381C29AE1C430034545E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84CA381B29AE1C430034545E /* Localizable.strings */; };
 		84CA381E29AE1C730034545E /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA381D29AE1C730034545E /* Color+Extension.swift */; };
-		84CA382229AE219B0034545E /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA382129AE219B0034545E /* Image+Extension.swift */; };
 		84CA382429AE21C10034545E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA382329AE21C10034545E /* String+Extension.swift */; };
 		84CA382629AE250F0034545E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA382529AE250F0034545E /* Color.swift */; };
-		84CA382829AE25250034545E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA382729AE25250034545E /* Image.swift */; };
 		84CA382A29AE25400034545E /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA382929AE25400034545E /* L10n.swift */; };
+		84CA382D29AE329A0034545E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84CA382F29AE329A0034545E /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,14 +70,11 @@
 		848B66BB29AD13DB00EF0BB0 /* Alert+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+.swift"; sourceTree = "<group>"; };
 		84CA381129AE1B4C0034545E /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = swiftgen.yml; path = ../../swiftgen.yml; sourceTree = "<group>"; };
 		84CA381729AE1BFA0034545E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		84CA381929AE1C0A0034545E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		84CA381B29AE1C430034545E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		84CA381D29AE1C730034545E /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		84CA382129AE219B0034545E /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		84CA382329AE21C10034545E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		84CA382529AE250F0034545E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		84CA382729AE25250034545E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		84CA382929AE25400034545E /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		84CA382E29AE329A0034545E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				84CA381629AE1BB40034545E /* Strings */,
-				84CA381529AE1BA70034545E /* Images */,
 				84CA381429AE1B9D0034545E /* Colors */,
 			);
 			path = Resources;
@@ -243,20 +236,10 @@
 			path = Colors;
 			sourceTree = "<group>";
 		};
-		84CA381529AE1BA70034545E /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				84CA381929AE1C0A0034545E /* Images.xcassets */,
-				84CA382129AE219B0034545E /* Image+Extension.swift */,
-				84CA382729AE25250034545E /* Image.swift */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		84CA381629AE1BB40034545E /* Strings */ = {
 			isa = PBXGroup;
 			children = (
-				84CA381B29AE1C430034545E /* Localizable.strings */,
+				84CA382F29AE329A0034545E /* Localizable.strings */,
 				84CA382329AE21C10034545E /* String+Extension.swift */,
 				84CA382929AE25400034545E /* L10n.swift */,
 			);
@@ -368,8 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84800097299E45B600BE05A0 /* Preview Assets.xcassets in Resources */,
-				84CA381C29AE1C430034545E /* Localizable.strings in Resources */,
-				84CA381A29AE1C0A0034545E /* Images.xcassets in Resources */,
+				84CA382D29AE329A0034545E /* Localizable.strings in Resources */,
 				84CA381829AE1BFA0034545E /* Colors.xcassets in Resources */,
 				84800093299E45B600BE05A0 /* Assets.xcassets in Resources */,
 				84CA381229AE1B4C0034545E /* swiftgen.yml in Resources */,
@@ -402,7 +384,6 @@
 				848000BA299E620800BE05A0 /* CalculatorButtonModel.swift in Sources */,
 				848B66B929AD0D2100EF0BB0 /* ErrorAlerts.swift in Sources */,
 				848000BD299E648F00BE05A0 /* CalculatorViewModel.swift in Sources */,
-				84CA382829AE25250034545E /* Image.swift in Sources */,
 				8464490829A77CE800A40EE1 /* BitcoinManager.swift in Sources */,
 				8464490D29A7A17800A40EE1 /* CustomCalculatorButton.swift in Sources */,
 				84CA382429AE21C10034545E /* String+Extension.swift in Sources */,
@@ -412,7 +393,6 @@
 				8480008F299E45B400BE05A0 /* LeoCalculatorApp.swift in Sources */,
 				84CA381E29AE1C730034545E /* Color+Extension.swift in Sources */,
 				8464490B29A7806100A40EE1 /* BitcoinUsdModel.swift in Sources */,
-				84CA382229AE219B0034545E /* Image+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +427,17 @@
 			targetProxy = 848000A7299E45B600BE05A0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		84CA382F29AE329A0034545E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84CA382E29AE329A0034545E /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		848000AE299E45B600BE05A0 /* Debug */ = {

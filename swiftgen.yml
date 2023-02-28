@@ -14,13 +14,6 @@
 
  xcassets:
    inputs:
-    - Images/Images.xcassets
-   outputs:
-     - templateName: swift5
-       output: Images/Image.swift
-       params:
-          enumName: Images
-   inputs:
     - Colors/Colors.xcassets
    outputs:
      - templateName: swift5
