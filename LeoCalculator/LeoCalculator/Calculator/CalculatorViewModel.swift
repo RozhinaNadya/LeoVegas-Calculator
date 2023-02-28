@@ -35,6 +35,8 @@ class CalculatorViewModel: ObservableObject {
     @Published var topButtons: [CalculatorButtonModel] = [.clear]
     @Published var rightButtons: [CalculatorButtonModel] = [.equal]
     
+    @Published var isBackButtonHidden = false
+    
     @Published var features = [
         FeatureList(id: CalculatorButtonModel.bitcoin.value, operation: .bitcoin),
         FeatureList(id: CalculatorButtonModel.sin.value, operation: .sin),
@@ -65,6 +67,10 @@ class CalculatorViewModel: ObservableObject {
 
     var isDecimalActive = false
     var isNextNumber = true
+    
+    var isOperationsCountNotEnough: Bool {
+        topButtons.count == 1 && rightButtons.count == 1
+    }
     
     init() {
         getBitcoinUsdPrice()
@@ -246,6 +252,11 @@ class CalculatorViewModel: ObservableObject {
         default:
             break
         }
+        
+        if isOperationsCountNotEnough {
+            activeError = CalculationError.noOperations
+            isBackButtonHidden = true
+        }
     }
     
     private func shouldAddBitcoin() -> Bool {
@@ -258,11 +269,13 @@ class CalculatorViewModel: ObservableObject {
     
     private func addFeature(feature: FeatureList) {
         guard let featureForAdd = CalculatorButtonModel(rawValue: feature.id) else { return }
-
+        
         switch feature.operation {
         case .sin, .cos:
             if (topButtons.firstIndex(where: { $0 == featureForAdd}) == nil) {
                 topButtons.append(featureForAdd)
+                activeError = nil
+                isBackButtonHidden = false
             }
             
             if topButtons.count > 3,
@@ -274,6 +287,8 @@ class CalculatorViewModel: ObservableObject {
         case .division, .multiplication, .subtraction, .addition:
             if (rightButtons.firstIndex(where: { $0 == featureForAdd}) == nil) {
                 rightButtons.append(featureForAdd)
+                activeError = nil
+                isBackButtonHidden = false
             }
             
             if rightButtons.count > 5,
@@ -292,6 +307,8 @@ class CalculatorViewModel: ObservableObject {
             } else if !topButtons.contains(where: {$0 == .bitcoin}) {
                 upperCalculatorButton = .bitcoin
             }
+            activeError = nil
+            isBackButtonHidden = false
             
         default:
             break
