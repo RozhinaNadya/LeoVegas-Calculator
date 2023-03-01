@@ -98,9 +98,9 @@ class CalculatorViewModel: ObservableObject {
                 self.bitcoinUsdModel = $0
             }).store(in: &cancellables)
     }
-
-    func didTapNumber(button: CalculatorButtonModel) {
-        if previousOperation != .none, button != .equal {
+    
+    func didTapButton(button: CalculatorButtonModel) {
+        if previousOperation != .none, button != .equal, didTapNotNumber(button: button), !isDecimalActive {
             let currentValue = Double(calculatorValue) ?? 0.0
             doOperation(currentValue: currentValue, runningValue: runningNumber)
         }
@@ -219,6 +219,10 @@ class CalculatorViewModel: ObservableObject {
         }
         
         calculatorValue = isDecimalActive ? String(format: "%.2f", value) : String(describing: Int(value))
+    }
+    
+    private func didTapNotNumber(button: CalculatorButtonModel) -> Bool {
+        return (button != .one && button != .two && button != .three && button != .four && button != .five && button != .six && button != .seven && button != .eight && button != .nine && button != .zero)
     }
     
     private func removeFeature(feature: FeatureList) {

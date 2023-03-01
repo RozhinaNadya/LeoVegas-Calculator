@@ -28,7 +28,7 @@ struct CalculatorView: View {
                     CustomCalculatorButton(button: upperCalculatorButton,
                                            rowType: .upper,
                                            action: {
-                        viewModel.didTapNumber(button: upperCalculatorButton)
+                        viewModel.didTapButton(button: upperCalculatorButton)
                     })
                 }
                 
@@ -88,7 +88,7 @@ struct CalculatorView: View {
                 topButtonsCount: CGFloat(row.count),
                 rightButtonsCount: CGFloat(row.count),
                 action: {
-                    viewModel.didTapNumber(button: buttonItem)
+                    viewModel.didTapButton(button: buttonItem)
                 }
             )
         }
