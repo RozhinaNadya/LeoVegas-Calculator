@@ -194,6 +194,9 @@ class CalculatorViewModel: ObservableObject {
         case .division:
             if currentValue != 0 {
                 value = runningValue / currentValue
+                if Int(runningValue) % Int(currentValue) != 0 {
+                    isDecimalActive = true
+                }
             } else {
                 activeError = CalculationError.zeroDivisionError
             }
