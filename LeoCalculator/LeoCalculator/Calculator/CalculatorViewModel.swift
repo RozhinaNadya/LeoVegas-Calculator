@@ -176,7 +176,7 @@ class CalculatorViewModel: ObservableObject {
         previousOperation = .none
     }
 
-    private func doOperation(currentValue: Double, runningValue: Double) {
+    func doOperation(currentValue: Double, runningValue: Double = 1.00) {
         var value = 0.0
         if currentOperation == .decimal {
             currentOperation = previousOperation
