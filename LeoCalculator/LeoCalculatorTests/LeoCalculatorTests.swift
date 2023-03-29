@@ -251,4 +251,23 @@ final class LeoCalculatorTests: XCTestCase {
 
         XCTAssertEqual(calculator.calculatorValue, expected)
     }
+    
+    func test_sin_flow() {
+        calculator.didTapButton(button: .nine)
+        calculator.didTapButton(button: .zero)
+        calculator.didTapButton(button: .sin)
+        let expected = "1.00"
+
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
+    
+    func test_cos_flow() {
+        calculator.didTapButton(button: .three)
+        calculator.didTapButton(button: .six)
+        calculator.didTapButton(button: .zero)
+        calculator.didTapButton(button: .cos)
+        let expected = "1.00"
+
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
 }
