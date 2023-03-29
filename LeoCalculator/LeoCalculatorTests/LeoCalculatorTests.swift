@@ -161,4 +161,43 @@ final class LeoCalculatorTests: XCTestCase {
 
         XCTAssertEqual(calculator.calculatorValue, expected)
     }
+    
+    func test_multiplication_flow() {
+        calculator.didTapButton(button: .five)
+        calculator.didTapButton(button: .four)
+        calculator.didTapButton(button: .multiplication)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .equal)
+        let expected = "594"
+
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
+    
+    func test_multiplication_decimal_flow() {
+        calculator.didTapButton(button: .five)
+        calculator.didTapButton(button: .four)
+        calculator.didTapButton(button: .multiplication)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .decimal)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .equal)
+        let expected = "59.40"
+
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
+    
+    func test_multiplication_two_decimal_flow() {
+        calculator.didTapButton(button: .five)
+        calculator.didTapButton(button: .decimal)
+        calculator.didTapButton(button: .four)
+        calculator.didTapButton(button: .multiplication)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .decimal)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .equal)
+        let expected = "5.94"
+
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
 }
