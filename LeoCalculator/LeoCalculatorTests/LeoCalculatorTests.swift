@@ -200,4 +200,55 @@ final class LeoCalculatorTests: XCTestCase {
 
         XCTAssertEqual(calculator.calculatorValue, expected)
     }
+    
+    func test_division_flow() {
+        calculator.didTapButton(button: .five)
+        calculator.didTapButton(button: .five)
+        calculator.didTapButton(button: .division)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .equal)
+        let expected = "5"
+
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
+    
+    func test_division_with_remainder_flow() {
+        calculator.didTapButton(button: .five)
+        calculator.didTapButton(button: .four)
+        calculator.didTapButton(button: .division)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .equal)
+        let expected = "4.91"
+
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
+    
+    func test_division_decimal_flow() {
+        calculator.didTapButton(button: .five)
+        calculator.didTapButton(button: .five)
+        calculator.didTapButton(button: .division)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .decimal)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .equal)
+        let expected = "50.00"
+
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
+    
+    func test_division_two_decimal_flow() {
+        calculator.didTapButton(button: .five)
+        calculator.didTapButton(button: .decimal)
+        calculator.didTapButton(button: .five)
+        calculator.didTapButton(button: .division)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .decimal)
+        calculator.didTapButton(button: .one)
+        calculator.didTapButton(button: .equal)
+        let expected = "5.00"
+
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
 }
