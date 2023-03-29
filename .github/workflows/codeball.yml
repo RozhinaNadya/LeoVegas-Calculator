@@ -17,3 +17,8 @@ jobs:
           labelPullRequestsWhenApproved: "true"
           labelPullRequestsWhenReviewNeeded: "false"
           failJobsWhenReviewNeeded: "false"
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
