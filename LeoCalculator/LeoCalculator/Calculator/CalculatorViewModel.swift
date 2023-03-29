@@ -105,7 +105,9 @@ class CalculatorViewModel: ObservableObject {
             doOperation(currentValue: currentValue, runningValue: runningNumber)
         }
         
-        previousOperation = currentOperation
+        if currentOperation != .decimal {
+            previousOperation = currentOperation
+        }
             
         switch button {
         case .decimal:
