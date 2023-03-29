@@ -270,4 +270,16 @@ final class LeoCalculatorTests: XCTestCase {
 
         XCTAssertEqual(calculator.calculatorValue, expected)
     }
+    
+    func test_concatenate_operations() {
+        calculator.didTapButton(button: .two)
+        calculator.didTapButton(button: .addition)
+        calculator.didTapButton(button: .three)
+        calculator.didTapButton(button: .multiplication)
+        calculator.didTapButton(button: .four)
+        calculator.didTapButton(button: .equal)
+        let expected = "20"
+
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
 }
