@@ -11,6 +11,19 @@
 		8464490B29A7806100A40EE1 /* BitcoinUsdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464490A29A7806100A40EE1 /* BitcoinUsdModel.swift */; };
 		8464490D29A7A17800A40EE1 /* CustomCalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464490C29A7A17800A40EE1 /* CustomCalculatorButton.swift */; };
 		8464491029A7CEAC00A40EE1 /* CalculatorSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464490F29A7CEAC00A40EE1 /* CalculatorSettingsView.swift */; };
+		847B070529CB648B0059773B /* BitcoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464490729A77CE800A40EE1 /* BitcoinManager.swift */; };
+		847B070629CB648B0059773B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA382529AE250F0034545E /* Color.swift */; };
+		847B070729CB64AB0059773B /* BitcoinUsdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464490A29A7806100A40EE1 /* BitcoinUsdModel.swift */; };
+		847B070829CB64CB0059773B /* Colors.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 84CA381729AE1BFA0034545E /* Colors.xcassets */; };
+		847B070929CB64CB0059773B /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA381D29AE1C730034545E /* Color+Extension.swift */; };
+		847B070A29CB64EB0059773B /* ErrorAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B66B829AD0D2100EF0BB0 /* ErrorAlerts.swift */; };
+		847B070B29CB651C0059773B /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 84CA382F29AE329A0034545E /* Localizable.strings */; };
+		847B070C29CB651C0059773B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA382329AE21C10034545E /* String+Extension.swift */; };
+		847B070D29CB651C0059773B /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA382929AE25400034545E /* L10n.swift */; };
+		847B070E29CB651C0059773B /* Alert+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B66BB29AD13DB00EF0BB0 /* Alert+.swift */; };
+		847B070F29CB651C0059773B /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA383029AE63290034545E /* View+.swift */; };
+		847B071029CB65250059773B /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA383229AE68040034545E /* DeviceRotationViewModifier.swift */; };
+		847B071129CB66230059773B /* CustomCalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464490C29A7A17800A40EE1 /* CustomCalculatorButton.swift */; };
 		8480008F299E45B400BE05A0 /* LeoCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480008E299E45B400BE05A0 /* LeoCalculatorApp.swift */; };
 		84800091299E45B400BE05A0 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84800090299E45B400BE05A0 /* CalculatorView.swift */; };
 		84800093299E45B600BE05A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84800092299E45B600BE05A0 /* Assets.xcassets */; };
@@ -20,6 +33,8 @@
 		848000AD299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000AC299E45B600BE05A0 /* LeoCalculatorUITestsLaunchTests.swift */; };
 		848000BA299E620800BE05A0 /* CalculatorButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000B9299E620800BE05A0 /* CalculatorButtonModel.swift */; };
 		848000BD299E648F00BE05A0 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000BC299E648F00BE05A0 /* CalculatorViewModel.swift */; };
+		848A768D29CB423C0075EA2B /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000BC299E648F00BE05A0 /* CalculatorViewModel.swift */; };
+		848A768E29CB42580075EA2B /* CalculatorButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848000B9299E620800BE05A0 /* CalculatorButtonModel.swift */; };
 		848B66B929AD0D2100EF0BB0 /* ErrorAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B66B829AD0D2100EF0BB0 /* ErrorAlerts.swift */; };
 		848B66BC29AD13DB00EF0BB0 /* Alert+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B66BB29AD13DB00EF0BB0 /* Alert+.swift */; };
 		84CA381229AE1B4C0034545E /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 84CA381129AE1B4C0034545E /* swiftgen.yml */; };
@@ -408,6 +423,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847B071129CB66230059773B /* CustomCalculatorButton.swift in Sources */,
+				847B071029CB65250059773B /* DeviceRotationViewModifier.swift in Sources */,
+				847B070B29CB651C0059773B /* Localizable.strings in Sources */,
+				847B070C29CB651C0059773B /* String+Extension.swift in Sources */,
+				847B070D29CB651C0059773B /* L10n.swift in Sources */,
+				847B070E29CB651C0059773B /* Alert+.swift in Sources */,
+				847B070F29CB651C0059773B /* View+.swift in Sources */,
+				847B070A29CB64EB0059773B /* ErrorAlerts.swift in Sources */,
+				847B070829CB64CB0059773B /* Colors.xcassets in Sources */,
+				847B070929CB64CB0059773B /* Color+Extension.swift in Sources */,
+				847B070729CB64AB0059773B /* BitcoinUsdModel.swift in Sources */,
+				847B070529CB648B0059773B /* BitcoinManager.swift in Sources */,
+				847B070629CB648B0059773B /* Color.swift in Sources */,
+				848A768E29CB42580075EA2B /* CalculatorButtonModel.swift in Sources */,
+				848A768D29CB423C0075EA2B /* CalculatorViewModel.swift in Sources */,
 				848000A1299E45B600BE05A0 /* LeoCalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,7 +584,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
@@ -659,7 +689,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.NadyaRozhina.LeoCalculatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -683,7 +715,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.NadyaRozhina.LeoCalculatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

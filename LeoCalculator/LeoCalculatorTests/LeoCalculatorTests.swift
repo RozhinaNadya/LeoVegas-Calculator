@@ -8,28 +8,79 @@
 import XCTest
 
 final class LeoCalculatorTests: XCTestCase {
+    
+    private var calculator: CalculatorViewModel!
+    
+    private let currentTestValue = 10.0
+    private let currentTestSinValue = 90.0
+    private let currentTestCosValue = 360.0
+    private let runningTestValue = 20.0
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        calculator = CalculatorViewModel()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        calculator = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func test_addition() {
+        calculator.currentOperation = .addition
+        calculator.doOperation(
+            currentValue: currentTestValue,
+            runningValue: runningTestValue
+        )
+        let expected = "30"
+        
+        XCTAssertEqual(calculator.calculatorValue, expected)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_subtraction() {
+        calculator.currentOperation = .subtraction
+        calculator.doOperation(
+            currentValue: currentTestValue,
+            runningValue: runningTestValue
+        )
+        let expected = "10"
+        
+        XCTAssertEqual(calculator.calculatorValue, expected)
     }
-
+    
+    func test_multiplication() {
+        calculator.currentOperation = .multiplication
+        calculator.doOperation(
+            currentValue: currentTestValue,
+            runningValue: runningTestValue
+        )
+        let expected = "200"
+        
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
+    
+    func test_division() {
+        calculator.currentOperation = .division
+        calculator.doOperation(
+            currentValue: currentTestValue,
+            runningValue: runningTestValue
+        )
+        let expected = "2"
+        
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
+    
+    func test_sin() {
+        calculator.currentOperation = .sin
+        calculator.doOperation(currentValue: currentTestSinValue)
+        let expected = "1.00"
+        
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
+    
+    func test_cos() {
+        calculator.currentOperation = .cos
+        calculator.doOperation(currentValue: currentTestCosValue)
+        let expected = "1.00"
+        
+        XCTAssertEqual(calculator.calculatorValue, expected)
+    }
 }
