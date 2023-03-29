@@ -170,13 +170,6 @@ class CalculatorViewModel: ObservableObject {
             isNextNumber = true
         }
     }
-    
-    private func doEqualOperation() {
-        let currentValue = Double(calculatorValue) ?? 0.0
-        doOperation(currentValue: currentValue, runningValue: runningNumber)
-        currentOperation = .none
-        previousOperation = .none
-    }
 
     func doOperation(currentValue: Double, runningValue: Double = 1.00) {
         var value = 0.0
@@ -224,6 +217,13 @@ class CalculatorViewModel: ObservableObject {
         }
         
         calculatorValue = isDecimalActive ? String(format: "%.2f", value) : String(describing: Int(value))
+    }
+    
+    private func doEqualOperation() {
+        let currentValue = Double(calculatorValue) ?? 0.0
+        doOperation(currentValue: currentValue, runningValue: runningNumber)
+        currentOperation = .none
+        previousOperation = .none
     }
     
     private func didTapNotNumber(button: CalculatorButtonModel) -> Bool {
@@ -281,7 +281,7 @@ class CalculatorViewModel: ObservableObject {
         
         switch feature.operation {
         case .sin, .cos:
-            if (topButtons.firstIndex(where: { $0 == featureForAdd}) == nil) {
+            if !topButtons.contains(where: { $0 == featureForAdd}) {
                 topButtons.append(featureForAdd)
                 activeError = nil
                 isBackButtonHidden = false
