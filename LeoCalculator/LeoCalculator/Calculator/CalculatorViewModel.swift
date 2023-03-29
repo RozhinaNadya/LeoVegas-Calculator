@@ -100,7 +100,7 @@ class CalculatorViewModel: ObservableObject {
     }
     
     func didTapButton(button: CalculatorButtonModel) {
-        if previousOperation != .none, button != .equal, didTapNotNumber(button: button), !isDecimalActive {
+        if previousOperation != .none, button != .decimal, button != .equal, didTapNotNumber(button: button), !isDecimalActive {
             let currentValue = Double(calculatorValue) ?? 0.0
             doOperation(currentValue: currentValue, runningValue: runningNumber)
         }
