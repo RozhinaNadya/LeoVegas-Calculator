@@ -216,6 +216,10 @@ class CalculatorViewModel: ObservableObject {
             break
         }
         
+        if isIntPossible(num: value) {
+            isDecimalActive = false
+        }
+        
         calculatorValue = isDecimalActive ? String(format: "%.2f", value) : String(describing: Int(value))
     }
     
@@ -224,6 +228,10 @@ class CalculatorViewModel: ObservableObject {
         doOperation(currentValue: currentValue, runningValue: runningNumber)
         currentOperation = .none
         previousOperation = .none
+    }
+    
+    private func isIntPossible(num: Double) -> Bool {
+        return Int(num * 100) % 100 == 0
     }
     
     private func didTapNotNumber(button: CalculatorButtonModel) -> Bool {
