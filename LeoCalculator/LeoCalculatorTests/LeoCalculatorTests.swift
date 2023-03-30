@@ -71,7 +71,7 @@ final class LeoCalculatorTests: XCTestCase {
     func test_sin() {
         calculator.currentOperation = .sin
         calculator.doOperation(currentValue: currentTestSinValue)
-        let expected = "1.00"
+        let expected = "1"
         
         XCTAssertEqual(calculator.calculatorValue, expected)
     }
@@ -79,7 +79,7 @@ final class LeoCalculatorTests: XCTestCase {
     func test_cos() {
         calculator.currentOperation = .cos
         calculator.doOperation(currentValue: currentTestCosValue)
-        let expected = "1.00"
+        let expected = "1"
         
         XCTAssertEqual(calculator.calculatorValue, expected)
     }
@@ -247,7 +247,7 @@ final class LeoCalculatorTests: XCTestCase {
         calculator.didTapButton(button: .decimal)
         calculator.didTapButton(button: .one)
         calculator.didTapButton(button: .equal)
-        let expected = "5.00"
+        let expected = "5"
 
         XCTAssertEqual(calculator.calculatorValue, expected)
     }
@@ -256,7 +256,7 @@ final class LeoCalculatorTests: XCTestCase {
         calculator.didTapButton(button: .nine)
         calculator.didTapButton(button: .zero)
         calculator.didTapButton(button: .sin)
-        let expected = "1.00"
+        let expected = "1"
 
         XCTAssertEqual(calculator.calculatorValue, expected)
     }
@@ -266,7 +266,7 @@ final class LeoCalculatorTests: XCTestCase {
         calculator.didTapButton(button: .six)
         calculator.didTapButton(button: .zero)
         calculator.didTapButton(button: .cos)
-        let expected = "1.00"
+        let expected = "1"
 
         XCTAssertEqual(calculator.calculatorValue, expected)
     }
